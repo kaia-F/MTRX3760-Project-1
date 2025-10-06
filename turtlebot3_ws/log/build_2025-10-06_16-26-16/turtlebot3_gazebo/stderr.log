@@ -1,0 +1,10 @@
+[01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:[m[K In member function ‘[01m[Kvoid Turtlebot3Drive::[01;32m[Kupdate_callback[m[K()[m[K’:
+[01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:178:17:[m[K [01;31m[Kerror: [m[K‘[01m[KTB3_AFTER_TURN_FORWARD[m[K’ was not declared in this scope
+  178 |         state = [01;31m[KTB3_AFTER_TURN_FORWARD[m[K;
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:184:10:[m[K [01;31m[Kerror: [m[K‘[01m[KTB3_AFTER_TURN_FORWARD[m[K’ was not declared in this scope
+  184 |     case [01;31m[KTB3_AFTER_TURN_FORWARD[m[K:
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/turtlebot3_drive.dir/build.make:76: CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:143: CMakeFiles/turtlebot3_drive.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

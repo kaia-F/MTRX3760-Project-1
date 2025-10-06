@@ -1,0 +1,35 @@
+[0.008s] Invoking command in '/home/shiyao/turtlebot3_ws/build/turtlebot3_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shiyao/turtlebot3_ws/install/turtlebot3_teleop:/home/shiyao/turtlebot3_ws/install/turtlebot3_example:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/shiyao/turtlebot3_ws/build/turtlebot3_gazebo -- -j12 -l12
+[0.049s] [ 75%] Built target obstacle1
+[0.049s] [ 75%] Built target obstacle2
+[0.049s] [ 75%] Built target obstacles
+[0.049s] [ 87%] [32mBuilding CXX object CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o[0m
+[1.575s] [01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:[m[K In member function ‘[01m[Kvoid Turtlebot3Drive::[01;32m[Kupdate_callback[m[K()[m[K’:
+[1.575s] [01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:162:5:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[1.575s]   162 |     [01;31m[K{[m[K
+[1.575s]       |     [01;31m[K^[m[K
+[1.582s] [01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:195:33:[m[K [01;31m[Kerror: [m[K‘[01m[Knormalize_angle[m[K’ was not declared in this scope; did you mean ‘[01m[Ktf2NormalizeAngle[m[K’?
+[1.582s]   195 |             double angle_diff = [01;31m[Knormalize_angle[m[K(robot_pose_ - prev_robot_pose_);
+[1.582s]       |                                 [01;31m[K^~~~~~~~~~~~~~~[m[K
+[1.582s]       |                                 [32m[Ktf2NormalizeAngle[m[K
+[1.582s] [01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:208:14:[m[K [01;31m[Kerror: [m[Kjump to case label
+[1.582s]   208 |         case [01;31m[KTB3_LEFT_TURN[m[K:
+[1.582s]       |              [01;31m[K^~~~~~~~~~~~~[m[K
+[1.582s] [01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:195:20:[m[K [01;36m[Knote: [m[K  crosses initialization of ‘[01m[Kdouble angle_diff[m[K’
+[1.582s]   195 |             double [01;36m[Kangle_diff[m[K = normalize_angle(robot_pose_ - prev_robot_pose_);
+[1.582s]       |                    [01;36m[K^~~~~~~~~~[m[K
+[1.582s] [01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:210:20:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kdouble angle_diff[m[K’
+[1.582s]   210 |             double [01;31m[Kangle_diff[m[K = normalize_angle(robot_pose_ - prev_robot_pose_);
+[1.582s]       |                    [01;31m[K^~~~~~~~~~[m[K
+[1.582s] [01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:195:20:[m[K [01;36m[Knote: [m[K‘[01m[Kdouble angle_diff[m[K’ previously declared here
+[1.582s]   195 |             double [01;36m[Kangle_diff[m[K = normalize_angle(robot_pose_ - prev_robot_pose_);
+[1.582s]       |                    [01;36m[K^~~~~~~~~~[m[K
+[1.582s] [01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:222:9:[m[K [01;31m[Kerror: [m[Kjump to case label
+[1.582s]   222 |         [01;31m[Kdefault[m[K:
+[1.582s]       |         [01;31m[K^~~~~~~[m[K
+[1.582s] [01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:195:20:[m[K [01;36m[Knote: [m[K  crosses initialization of ‘[01m[Kdouble angle_diff[m[K’
+[1.582s]   195 |             double [01;36m[Kangle_diff[m[K = normalize_angle(robot_pose_ - prev_robot_pose_);
+[1.582s]       |                    [01;36m[K^~~~~~~~~~[m[K
+[3.567s] gmake[2]: *** [CMakeFiles/turtlebot3_drive.dir/build.make:76: CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o] Error 1
+[3.567s] gmake[1]: *** [CMakeFiles/Makefile2:143: CMakeFiles/turtlebot3_drive.dir/all] Error 2
+[3.567s] gmake: *** [Makefile:146: all] Error 2
+[3.569s] Invoked command in '/home/shiyao/turtlebot3_ws/build/turtlebot3_gazebo' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shiyao/turtlebot3_ws/install/turtlebot3_teleop:/home/shiyao/turtlebot3_ws/install/turtlebot3_example:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/shiyao/turtlebot3_ws/build/turtlebot3_gazebo -- -j12 -l12

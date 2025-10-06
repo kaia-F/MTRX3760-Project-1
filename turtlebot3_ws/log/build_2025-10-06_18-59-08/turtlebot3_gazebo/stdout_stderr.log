@@ -1,0 +1,27 @@
+[ 75%] Built target obstacle2
+[ 75%] Built target obstacle1
+[ 75%] Built target obstacles
+[ 87%] [32mBuilding CXX object CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o[0m
+[01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:[m[K In member function ‘[01m[Kvoid Turtlebot3Drive::[01;32m[Kscan_callback[m[K(sensor_msgs::msg::LaserScan_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:122:48:[m[K [01;31m[Kerror: [m[Ktoo many initializers for ‘[01m[Kuint16_t [3][m[K’ {aka ‘[01m[Kshort unsigned int [3][m[K’}
+  122 |   uint16_t scan_angle[3] = {0, 90, 270, 315, 45[01;31m[K}[m[K;
+      |                                                [01;31m[K^[m[K
+[01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:[m[K In member function ‘[01m[Kvoid Turtlebot3Drive::[01;32m[Kupdate_callback[m[K()[m[K’:
+[01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:230:35:[m[K [01;31m[Kerror: [m[K‘[01m[KTOP_RIGHT[m[K’ was not declared in this scope
+  230 |     double top_right = scan_data_[[01;31m[KTOP_RIGHT[m[K];
+      |                                   [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:232:34:[m[K [01;31m[Kerror: [m[K‘[01m[KTOP_LEFT[m[K’ was not declared in this scope
+  232 |     double top_left = scan_data_[[01;31m[KTOP_LEFT[m[K];
+      |                                  [01;31m[K^~~~~~~~[m[K
+[01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:277:25:[m[K [01;31m[Kerror: [m[K‘[01m[KTB3_AFTER_TURN_FORWARD[m[K’ was not declared in this scope
+  277 |                 state = [01;31m[KTB3_AFTER_TURN_FORWARD[m[K;
+      |                         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:285:14:[m[K [01;31m[Kerror: [m[K‘[01m[KTB3_AFTER_TURN_FORWARD[m[K’ was not declared in this scope
+  285 |         case [01;31m[KTB3_AFTER_TURN_FORWARD[m[K:
+      |              [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:231:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kleft[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  231 |     double [01;35m[Kleft[m[K = scan_data_[LEFT];
+      |            [01;35m[K^~~~[m[K
+gmake[2]: *** [CMakeFiles/turtlebot3_drive.dir/build.make:76: CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:143: CMakeFiles/turtlebot3_drive.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
