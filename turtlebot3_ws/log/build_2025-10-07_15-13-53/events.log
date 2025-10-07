@@ -1,0 +1,604 @@
+[0.000000] (-) TimerEvent: {}
+[0.000118] (-) JobUnselected: {'identifier': 'dynamixel_sdk'}
+[0.000140] (-) JobUnselected: {'identifier': 'dynamixel_sdk_custom_interfaces'}
+[0.000152] (-) JobUnselected: {'identifier': 'dynamixel_sdk_examples'}
+[0.000160] (-) JobUnselected: {'identifier': 'turtlebot3'}
+[0.000167] (-) JobUnselected: {'identifier': 'turtlebot3_bringup'}
+[0.000174] (-) JobUnselected: {'identifier': 'turtlebot3_cartographer'}
+[0.000180] (-) JobUnselected: {'identifier': 'turtlebot3_description'}
+[0.000187] (-) JobUnselected: {'identifier': 'turtlebot3_example'}
+[0.000193] (-) JobUnselected: {'identifier': 'turtlebot3_fake_node'}
+[0.000199] (-) JobUnselected: {'identifier': 'turtlebot3_msgs'}
+[0.000205] (-) JobUnselected: {'identifier': 'turtlebot3_navigation2'}
+[0.000211] (-) JobUnselected: {'identifier': 'turtlebot3_node'}
+[0.000217] (-) JobUnselected: {'identifier': 'turtlebot3_simulations'}
+[0.000224] (-) JobUnselected: {'identifier': 'turtlebot3_teleop'}
+[0.000233] (turtlebot3_gazebo) JobQueued: {'identifier': 'turtlebot3_gazebo', 'dependencies': OrderedDict()}
+[0.000597] (turtlebot3_gazebo) JobStarted: {'identifier': 'turtlebot3_gazebo'}
+[0.006983] (turtlebot3_gazebo) JobProgress: {'identifier': 'turtlebot3_gazebo', 'progress': 'cmake'}
+[0.007230] (turtlebot3_gazebo) Command: {'cmd': ['/usr/bin/cmake', '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo', '-DCMAKE_INSTALL_PREFIX=/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo'], 'cwd': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/build/turtlebot3_gazebo', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share:/home/shiyao/turtlebot3_ws/install/turtlebot3_gazebo/share', 'USER': 'shiyao', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_msgs/lib:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk/lib:/home/shiyao/turtlebot3_ws/install/turtlebot3_msgs/lib:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/shiyao', 'OLDPWD': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2632', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', '_colcon_cd_root': '/opt/ros/jazzy/', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install:/home/shiyao/turtlebot3_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'shiyao', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'shiyao', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/shiyao-MS-7D99:@/tmp/.ICE-unix/2584,unix/shiyao-MS-7D99:/tmp/.ICE-unix/2584', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/7edc9e63_705f_43f0_99c5_a08529b715da', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.CMQYD3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.873', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_teleop:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_simulations:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_bringup:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_node:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_navigation2:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_fake_node:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_example:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_msgs:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_description:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_cartographer:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_examples:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk:/home/shiyao/turtlebot3_ws/install/turtlebot3:/home/shiyao/turtlebot3_ws/install/turtlebot3_teleop:/home/shiyao/turtlebot3_ws/install/turtlebot3_simulations:/home/shiyao/turtlebot3_ws/install/turtlebot3_bringup:/home/shiyao/turtlebot3_ws/install/turtlebot3_node:/home/shiyao/turtlebot3_ws/install/turtlebot3_navigation2:/home/shiyao/turtlebot3_ws/install/turtlebot3_fake_node:/home/shiyao/turtlebot3_ws/install/turtlebot3_example:/home/shiyao/turtlebot3_ws/install/turtlebot3_msgs:/home/shiyao/turtlebot3_ws/install/turtlebot3_gazebo:/home/shiyao/turtlebot3_ws/install/turtlebot3_description:/home/shiyao/turtlebot3_ws/install/turtlebot3_cartographer:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_examples:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/build/turtlebot3_gazebo', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.12/site-packages:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_example/lib/python3.12/site-packages:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_msgs/lib/python3.12/site-packages:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib/python3.12/site-packages:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages:/home/shiyao/turtlebot3_ws/build/turtlebot3_teleop:/home/shiyao/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.12/site-packages:/home/shiyao/turtlebot3_ws/build/turtlebot3_example:/home/shiyao/turtlebot3_ws/install/turtlebot3_example/lib/python3.12/site-packages:/home/shiyao/turtlebot3_ws/install/turtlebot3_msgs/lib/python3.12/site-packages:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib/python3.12/site-packages:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_simulations:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_bringup:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_node:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_navigation2:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_fake_node:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_msgs:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_description:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_cartographer:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_examples:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk:/home/shiyao/turtlebot3_ws/install/turtlebot3:/home/shiyao/turtlebot3_ws/install/turtlebot3_simulations:/home/shiyao/turtlebot3_ws/install/turtlebot3_bringup:/home/shiyao/turtlebot3_ws/install/turtlebot3_node:/home/shiyao/turtlebot3_ws/install/turtlebot3_navigation2:/home/shiyao/turtlebot3_ws/install/turtlebot3_fake_node:/home/shiyao/turtlebot3_ws/install/turtlebot3_msgs:/home/shiyao/turtlebot3_ws/install/turtlebot3_description:/home/shiyao/turtlebot3_ws/install/turtlebot3_cartographer:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_examples:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_teleop:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_example:/home/shiyao/turtlebot3_ws/install/turtlebot3_teleop:/home/shiyao/turtlebot3_ws/install/turtlebot3_example:/home/shiyao/turtlebot3_ws/install/turtlebot3_gazebo:/opt/ros/jazzy'}), 'shell': False}
+[0.099900] (-) TimerEvent: {}
+[0.142127] (turtlebot3_gazebo) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.196713] (turtlebot3_gazebo) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[0.199944] (-) TimerEvent: {}
+[0.214224] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.298367] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.300011] (-) TimerEvent: {}
+[0.309393] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.310024] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.311051] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.319587] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.400115] (-) TimerEvent: {}
+[0.407212] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.415185] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.415373] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.415700] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.428438] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.500191] (-) TimerEvent: {}
+[0.556658] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[0.600277] (-) TimerEvent: {}
+[0.663236] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found ros_gz_sim: 1.0.16 (/opt/ros/jazzy/share/ros_gz_sim/cmake)\n'}
+[0.700372] (-) TimerEvent: {}
+[0.725686] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.741534] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.761000] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.780998] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.800459] (-) TimerEvent: {}
+[0.861158] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[0.866271] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.900548] (-) TimerEvent: {}
+[0.997367] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[1.000605] (-) TimerEvent: {}
+[1.017167] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[1.036518] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.100705] (-) TimerEvent: {}
+[1.200904] (-) TimerEvent: {}
+[1.268070] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)\n'}
+[1.291111] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)\n'}
+[1.300982] (-) TimerEvent: {}
+[1.312785] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found gz_math_vendor: 0.0.8 (/opt/ros/jazzy/share/gz_math_vendor/cmake)\n'}
+[1.323114] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.5.2\n'}
+[1.329196] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-math7\n'}
+[1.331289] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[1.331389] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-utils2\n'}
+[1.335418] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found gz_sim_vendor: 0.0.8 (/opt/ros/jazzy/share/gz_sim_vendor/cmake)\n'}
+[1.393998] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sim8 -- found version 8.9.0\n'}
+[1.394143] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sim8\n'}
+[1.396313] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for sdformat14 -- found version 14.8.0\n'}
+[1.396471] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of sdformat14\n'}
+[1.400492] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'tinyxml2'\n"}
+[1.401036] (-) TimerEvent: {}
+[1.414087] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found tinyxml2, version 10.0.0\n'}
+[1.458595] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.5.2\n'}
+[1.461355] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[1.462182] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-utils2\n'}
+[1.463028] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-utils2> component [cli]\n'}
+[1.470443] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2-cli -- found version 2.2.1\n'}
+[1.470594] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-utils2-cli\n'}
+[1.474093] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-plugin2 -- found version 2.0.4\n'}
+[1.474252] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-plugin2\n'}
+[1.474606] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[1.475205] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-plugin2> component [loader]\n'}
+[1.478141] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-plugin2-loader -- found version 2.0.4\n'}
+[1.478271] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-plugin2-loader\n'}
+[1.478720] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-plugin2> component [register]\n'}
+[1.482099] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-plugin2-register -- found version 2.0.4\n'}
+[1.482258] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-plugin2-register\n'}
+[1.484957] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-transport13 -- found version 13.4.1\n'}
+[1.485057] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-transport13\n'}
+[1.501130] (-) TimerEvent: {}
+[1.601308] (-) TimerEvent: {}
+[1.605529] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.21.12") \n'}
+[1.617091] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Config-file not installed for ZeroMQ -- checking for pkg-config\n'}
+[1.620686] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'libzmq >= 4'\n"}
+[1.632413] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found libzmq, version 4.3.5\n'}
+[1.663948] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found ZeroMQ: TRUE (Required is at least version "4") \n'}
+[1.670009] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'uuid'\n"}
+[1.681632] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found uuid, version 2.39.3\n'}
+[1.701408] (-) TimerEvent: {}
+[1.705493] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found UUID: TRUE  \n'}
+[1.705924] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[1.709992] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-msgs10 -- found version 10.3.2\n'}
+[1.710490] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-msgs10\n'}
+[1.727575] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[1.727791] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.5.2\n'}
+[1.733386] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-transport13> component [log]\n'}
+[1.735707] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-transport13-log -- found version 13.4.1\n'}
+[1.735846] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-transport13-log\n'}
+[1.736296] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-transport13> component [parameters]\n'}
+[1.738874] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-transport13-parameters -- found version 13.4.1\n'}
+[1.738990] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-transport13-parameters\n'}
+[1.739771] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-msgs10 -- found version 10.3.2\n'}
+[1.743508] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.7.1\n'}
+[1.743671] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5\n'}
+[1.743848] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[1.744562] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for dlfcn.h - found\n'}
+[1.745876] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for libdl - found\n'}
+[1.746920] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found DL: TRUE  \n'}
+[1.752099] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [av]\n'}
+[1.754496] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5-av -- found version 5.7.1\n'}
+[1.754619] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5-av\n'}
+[1.758005] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'libswscale'\n"}
+[1.769815] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found libswscale, version 7.5.100\n'}
+[1.801515] (-) TimerEvent: {}
+[1.805176] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found SWSCALE: TRUE  \n'}
+[1.812286] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'libavdevice >= 56.4.100'\n"}
+[1.826065] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found libavdevice, version 60.3.100\n'}
+[1.858684] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found AVDEVICE: TRUE (Required is at least version "56.4.100") \n'}
+[1.863260] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'libavformat'\n"}
+[1.875884] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found libavformat, version 60.16.100\n'}
+[1.902028] (-) TimerEvent: {}
+[1.924682] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found AVFORMAT: TRUE  \n'}
+[1.931420] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'libavcodec'\n"}
+[1.943597] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found libavcodec, version 60.31.102\n'}
+[1.970934] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found AVCODEC: TRUE  \n'}
+[1.974283] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'libavutil'\n"}
+[1.985976] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found libavutil, version 58.29.100\n'}
+[2.002097] (-) TimerEvent: {}
+[2.012040] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found AVUTIL: TRUE  \n'}
+[2.012804] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [events]\n'}
+[2.018272] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5-events -- found version 5.7.1\n'}
+[2.018411] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5-events\n'}
+[2.018762] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.5.2\n'}
+[2.019184] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [graphics]\n'}
+[2.021865] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5-graphics -- found version 5.7.1\n'}
+[2.021991] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5-graphics\n'}
+[2.022243] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.5.2\n'}
+[2.031312] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found GzAssimp: TRUE (found version "5.3.0") \n'}
+[2.031762] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [io]\n'}
+[2.034319] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5-io -- found version 5.7.1\n'}
+[2.034441] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5-io\n'}
+[2.034874] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [profiler]\n'}
+[2.037390] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5-profiler -- found version 5.7.1\n'}
+[2.037528] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5-profiler\n'}
+[2.040420] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-fuel_tools9 -- found version 9.1.1\n'}
+[2.040525] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-fuel_tools9\n'}
+[2.102200] (-) TimerEvent: {}
+[2.114435] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "8.5.0")  \n'}
+[2.135410] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'jsoncpp'\n"}
+[2.158242] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found jsoncpp, version 1.9.5\n'}
+[2.202330] (-) TimerEvent: {}
+[2.208882] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found JSONCPP: TRUE  \n'}
+[2.235102] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'yaml-0.1'\n"}
+[2.246879] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found yaml-0.1, version 0.2.5\n'}
+[2.275358] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found YAML: TRUE  \n'}
+[2.284457] (turtlebot3_gazebo) StdoutLine: {'line': b"-- Checking for module 'libzip'\n"}
+[2.300834] (turtlebot3_gazebo) StdoutLine: {'line': b'--   Found libzip, version 1.7.3\n'}
+[2.302381] (-) TimerEvent: {}
+[2.333316] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found ZIP: TRUE  \n'}
+[2.333643] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.333948] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.7.1\n'}
+[2.334084] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5\n'}
+[2.334335] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.334461] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for dlfcn.h - found\n'}
+[2.334506] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for libdl - found\n'}
+[2.339928] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [testing]\n'}
+[2.343254] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5-testing -- found version 5.7.1\n'}
+[2.343389] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5-testing\n'}
+[2.344147] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.5.2\n'}
+[2.344499] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-msgs10 -- found version 10.3.2\n'}
+[2.349814] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-gui8 -- found version 8.4.0\n'}
+[2.349994] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-gui8\n'}
+[2.369901] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.370134] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.5.2\n'}
+[2.370414] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.7.1\n'}
+[2.370698] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-plugin2 -- found version 2.0.4\n'}
+[2.370971] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-transport13 -- found version 13.4.1\n'}
+[2.373512] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-rendering8 -- found version 8.2.2\n'}
+[2.373630] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-rendering8\n'}
+[2.373880] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.5.2\n'}
+[2.373994] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-math7\n'}
+[2.374223] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.374347] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-math7> component [eigen3]\n'}
+[2.376843] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7-eigen3 -- found version 7.5.2\n'}
+[2.376950] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-math7-eigen3\n'}
+[2.386332] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.7.1\n'}
+[2.386433] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5\n'}
+[2.386661] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.386786] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for dlfcn.h - found\n'}
+[2.386832] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for libdl - found\n'}
+[2.392338] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [graphics]\n'}
+[2.392407] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [events]\n'}
+[2.392442] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-common5> component [geospatial]\n'}
+[2.395139] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5-geospatial -- found version 5.7.1\n'}
+[2.395210] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-common5-geospatial\n'}
+[2.395439] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.5.2\n'}
+[2.395823] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.7.1\n'}
+[2.396638] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-plugin2 -- found version 2.0.4\n'}
+[2.396745] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-plugin2\n'}
+[2.396985] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.397104] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-plugin2> component [all]\n'}
+[2.399354] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for all libraries of gz-plugin2 -- found version 2.0.4\n'}
+[2.399720] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-plugin2 -- found version 2.0.4\n'}
+[2.400524] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.402438] (-) TimerEvent: {}
+[2.413922] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so  found components: OpenGL \n'}
+[2.415046] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-msgs10 -- found version 10.3.2\n'}
+[2.440515] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-physics7 -- found version 7.5.0\n'}
+[2.440646] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-physics7\n'}
+[2.440877] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.7.1\n'}
+[2.441224] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.5.2\n'}
+[2.441579] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-plugin2 -- found version 2.0.4\n'}
+[2.441931] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.443369] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-physics7> component [heightmap]\n'}
+[2.445502] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-physics7-heightmap -- found version 7.5.0\n'}
+[2.445612] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-physics7-heightmap\n'}
+[2.445884] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.7.1\n'}
+[2.446228] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-physics7> component [mesh]\n'}
+[2.448296] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-physics7-mesh -- found version 7.5.0\n'}
+[2.448406] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-physics7-mesh\n'}
+[2.448661] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.7.1\n'}
+[2.449010] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-physics7> component [sdf]\n'}
+[2.450995] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-physics7-sdf -- found version 7.5.0\n'}
+[2.451110] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-physics7-sdf\n'}
+[2.451411] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for sdformat14 -- found version 14.8.0\n'}
+[2.455653] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8 -- found version 8.2.2\n'}
+[2.455770] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8\n'}
+[2.471812] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.5.2\n'}
+[2.472043] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.7.1\n'}
+[2.472413] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-transport13 -- found version 13.4.1\n'}
+[2.472752] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-rendering8 -- found version 8.2.2\n'}
+[2.473159] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-msgs10 -- found version 10.3.2\n'}
+[2.473563] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for sdformat14 -- found version 14.8.0\n'}
+[2.474096] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [air_pressure]\n'}
+[2.476542] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-air_pressure -- found version 8.2.2\n'}
+[2.476657] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-air_pressure\n'}
+[2.477040] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [air_speed]\n'}
+[2.479054] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-air_speed -- found version 8.2.2\n'}
+[2.479162] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-air_speed\n'}
+[2.479506] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [altimeter]\n'}
+[2.481478] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-altimeter -- found version 8.2.2\n'}
+[2.481585] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-altimeter\n'}
+[2.481919] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [imu]\n'}
+[2.483808] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-imu -- found version 8.2.2\n'}
+[2.483918] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-imu\n'}
+[2.484252] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [force_torque]\n'}
+[2.486155] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-force_torque -- found version 8.2.2\n'}
+[2.486269] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-force_torque\n'}
+[2.486612] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [logical_camera]\n'}
+[2.488504] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-logical_camera -- found version 8.2.2\n'}
+[2.488612] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-logical_camera\n'}
+[2.489051] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [magnetometer]\n'}
+[2.490956] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-magnetometer -- found version 8.2.2\n'}
+[2.491055] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-magnetometer\n'}
+[2.491527] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [navsat]\n'}
+[2.493809] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-navsat -- found version 8.2.2\n'}
+[2.493913] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-navsat\n'}
+[2.494274] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [dvl]\n'}
+[2.496177] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-dvl -- found version 8.2.2\n'}
+[2.496289] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-dvl\n'}
+[2.496553] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8 -- found version 8.2.2\n'}
+[2.496662] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8\n'}
+[2.502509] (-) TimerEvent: {}
+[2.513266] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.5.2\n'}
+[2.513519] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-common5 -- found version 5.7.1\n'}
+[2.513815] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-transport13 -- found version 13.4.1\n'}
+[2.514090] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-rendering8 -- found version 8.2.2\n'}
+[2.514365] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-msgs10 -- found version 10.3.2\n'}
+[2.514633] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for sdformat14 -- found version 14.8.0\n'}
+[2.514786] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [rendering]\n'}
+[2.516822] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-rendering -- found version 8.2.2\n'}
+[2.516949] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-rendering\n'}
+[2.517999] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [rendering]\n'}
+[2.518045] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [lidar]\n'}
+[2.519988] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-lidar -- found version 8.2.2\n'}
+[2.520102] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-lidar\n'}
+[2.520377] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8 -- found version 8.2.2\n'}
+[2.520794] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [gpu_lidar]\n'}
+[2.522710] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-gpu_lidar -- found version 8.2.2\n'}
+[2.522827] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-gpu_lidar\n'}
+[2.523084] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8 -- found version 8.2.2\n'}
+[2.523589] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [camera]\n'}
+[2.525940] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-camera -- found version 8.2.2\n'}
+[2.526060] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-camera\n'}
+[2.526298] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8 -- found version 8.2.2\n'}
+[2.526828] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [boundingbox_camera]\n'}
+[2.528793] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-boundingbox_camera -- found version 8.2.2\n'}
+[2.528900] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-boundingbox_camera\n'}
+[2.529282] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [segmentation_camera]\n'}
+[2.531193] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-segmentation_camera -- found version 8.2.2\n'}
+[2.531309] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-segmentation_camera\n'}
+[2.531676] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [depth_camera]\n'}
+[2.533787] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-depth_camera -- found version 8.2.2\n'}
+[2.533896] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-depth_camera\n'}
+[2.534156] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8 -- found version 8.2.2\n'}
+[2.534670] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [rgbd_camera]\n'}
+[2.536577] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-rgbd_camera -- found version 8.2.2\n'}
+[2.536688] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-rgbd_camera\n'}
+[2.536943] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8 -- found version 8.2.2\n'}
+[2.537381] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [thermal_camera]\n'}
+[2.539250] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-thermal_camera -- found version 8.2.2\n'}
+[2.539364] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-thermal_camera\n'}
+[2.539626] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8 -- found version 8.2.2\n'}
+[2.540048] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for <gz-sensors8> component [wide_angle_camera]\n'}
+[2.542327] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-sensors8-wide_angle_camera -- found version 8.2.2\n'}
+[2.542479] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-sensors8-wide_angle_camera\n'}
+[2.543359] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-rendering8 -- found version 8.2.2\n'}
+[2.543672] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.5.2\n'}
+[2.543930] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[2.562173] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Looking for gz-plugin2 -- found version 2.0.4\n'}
+[2.602594] (-) TimerEvent: {}
+[2.632288] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Configuring done (2.6s)\n'}
+[2.658626] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[2.666358] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Build files have been written to: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/build/turtlebot3_gazebo\n'}
+[2.678745] (turtlebot3_gazebo) CommandEnded: {'returncode': 0}
+[2.679215] (turtlebot3_gazebo) JobProgress: {'identifier': 'turtlebot3_gazebo', 'progress': 'build'}
+[2.679797] (turtlebot3_gazebo) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/build/turtlebot3_gazebo', '--', '-j12', '-l12'], 'cwd': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/build/turtlebot3_gazebo', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share:/home/shiyao/turtlebot3_ws/install/turtlebot3_gazebo/share', 'USER': 'shiyao', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_msgs/lib:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk/lib:/home/shiyao/turtlebot3_ws/install/turtlebot3_msgs/lib:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/shiyao', 'OLDPWD': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2632', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', '_colcon_cd_root': '/opt/ros/jazzy/', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install:/home/shiyao/turtlebot3_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'shiyao', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'shiyao', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/shiyao-MS-7D99:@/tmp/.ICE-unix/2584,unix/shiyao-MS-7D99:/tmp/.ICE-unix/2584', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/7edc9e63_705f_43f0_99c5_a08529b715da', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.CMQYD3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.873', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_teleop:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_simulations:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_bringup:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_node:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_navigation2:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_fake_node:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_example:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_msgs:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_description:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_cartographer:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_examples:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk:/home/shiyao/turtlebot3_ws/install/turtlebot3:/home/shiyao/turtlebot3_ws/install/turtlebot3_teleop:/home/shiyao/turtlebot3_ws/install/turtlebot3_simulations:/home/shiyao/turtlebot3_ws/install/turtlebot3_bringup:/home/shiyao/turtlebot3_ws/install/turtlebot3_node:/home/shiyao/turtlebot3_ws/install/turtlebot3_navigation2:/home/shiyao/turtlebot3_ws/install/turtlebot3_fake_node:/home/shiyao/turtlebot3_ws/install/turtlebot3_example:/home/shiyao/turtlebot3_ws/install/turtlebot3_msgs:/home/shiyao/turtlebot3_ws/install/turtlebot3_gazebo:/home/shiyao/turtlebot3_ws/install/turtlebot3_description:/home/shiyao/turtlebot3_ws/install/turtlebot3_cartographer:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_examples:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/build/turtlebot3_gazebo', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.12/site-packages:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_example/lib/python3.12/site-packages:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_msgs/lib/python3.12/site-packages:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib/python3.12/site-packages:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages:/home/shiyao/turtlebot3_ws/build/turtlebot3_teleop:/home/shiyao/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.12/site-packages:/home/shiyao/turtlebot3_ws/build/turtlebot3_example:/home/shiyao/turtlebot3_ws/install/turtlebot3_example/lib/python3.12/site-packages:/home/shiyao/turtlebot3_ws/install/turtlebot3_msgs/lib/python3.12/site-packages:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib/python3.12/site-packages:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_simulations:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_bringup:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_node:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_navigation2:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_fake_node:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_msgs:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_description:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_cartographer:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_examples:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk:/home/shiyao/turtlebot3_ws/install/turtlebot3:/home/shiyao/turtlebot3_ws/install/turtlebot3_simulations:/home/shiyao/turtlebot3_ws/install/turtlebot3_bringup:/home/shiyao/turtlebot3_ws/install/turtlebot3_node:/home/shiyao/turtlebot3_ws/install/turtlebot3_navigation2:/home/shiyao/turtlebot3_ws/install/turtlebot3_fake_node:/home/shiyao/turtlebot3_ws/install/turtlebot3_msgs:/home/shiyao/turtlebot3_ws/install/turtlebot3_description:/home/shiyao/turtlebot3_ws/install/turtlebot3_cartographer:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_examples:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_teleop:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_example:/home/shiyao/turtlebot3_ws/install/turtlebot3_teleop:/home/shiyao/turtlebot3_ws/install/turtlebot3_example:/home/shiyao/turtlebot3_ws/install/turtlebot3_gazebo:/opt/ros/jazzy'}), 'shell': False}
+[2.702687] (-) TimerEvent: {}
+[2.771573] (turtlebot3_gazebo) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding CXX object CMakeFiles/obstacles.dir/src/obstacles.cpp.o\x1b[0m\n'}
+[2.772170] (turtlebot3_gazebo) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o\x1b[0m\n'}
+[2.772472] (turtlebot3_gazebo) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/obstacle1.dir/src/obstacle1.cpp.o\x1b[0m\n'}
+[2.772810] (turtlebot3_gazebo) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/obstacle2.dir/src/obstacle2.cpp.o\x1b[0m\n'}
+[2.802786] (-) TimerEvent: {}
+[2.903028] (-) TimerEvent: {}
+[3.003272] (-) TimerEvent: {}
+[3.103518] (-) TimerEvent: {}
+[3.203736] (-) TimerEvent: {}
+[3.303967] (-) TimerEvent: {}
+[3.404174] (-) TimerEvent: {}
+[3.504400] (-) TimerEvent: {}
+[3.604612] (-) TimerEvent: {}
+[3.704827] (-) TimerEvent: {}
+[3.805042] (-) TimerEvent: {}
+[3.905240] (-) TimerEvent: {}
+[4.005467] (-) TimerEvent: {}
+[4.105683] (-) TimerEvent: {}
+[4.205896] (-) TimerEvent: {}
+[4.306099] (-) TimerEvent: {}
+[4.346982] (turtlebot3_gazebo) StderrLine: {'line': b'\x1b[01m\x1b[K/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid Turtlebot3Drive::\x1b[01;32m\x1b[Kupdate_callback\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.347134] (turtlebot3_gazebo) StderrLine: {'line': b'\x1b[01m\x1b[K/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:163:12:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kleft\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[4.347185] (turtlebot3_gazebo) StderrLine: {'line': b'  163 |     double \x1b[01;35m\x1b[Kleft\x1b[m\x1b[K = scan_data_[LEFT];\n'}
+[4.347223] (turtlebot3_gazebo) StderrLine: {'line': b'      |            \x1b[01;35m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[4.406185] (-) TimerEvent: {}
+[4.500753] (turtlebot3_gazebo) StdoutLine: {'line': b'[ 62%] \x1b[32m\x1b[1mLinking CXX shared library libobstacles.so\x1b[0m\n'}
+[4.506257] (-) TimerEvent: {}
+[4.606466] (-) TimerEvent: {}
+[4.630763] (turtlebot3_gazebo) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX shared library libobstacle2.so\x1b[0m\n'}
+[4.632909] (turtlebot3_gazebo) StdoutLine: {'line': b'[ 87%] \x1b[32m\x1b[1mLinking CXX shared library libobstacle1.so\x1b[0m\n'}
+[4.641779] (turtlebot3_gazebo) StdoutLine: {'line': b'[ 87%] Built target obstacles\n'}
+[4.706556] (-) TimerEvent: {}
+[4.762980] (turtlebot3_gazebo) StdoutLine: {'line': b'[ 87%] Built target obstacle1\n'}
+[4.764293] (turtlebot3_gazebo) StdoutLine: {'line': b'[ 87%] Built target obstacle2\n'}
+[4.806646] (-) TimerEvent: {}
+[4.906847] (-) TimerEvent: {}
+[5.007048] (-) TimerEvent: {}
+[5.107254] (-) TimerEvent: {}
+[5.207462] (-) TimerEvent: {}
+[5.307669] (-) TimerEvent: {}
+[5.407877] (-) TimerEvent: {}
+[5.508095] (-) TimerEvent: {}
+[5.608310] (-) TimerEvent: {}
+[5.708524] (-) TimerEvent: {}
+[5.808733] (-) TimerEvent: {}
+[5.908938] (-) TimerEvent: {}
+[6.009144] (-) TimerEvent: {}
+[6.109543] (-) TimerEvent: {}
+[6.209774] (-) TimerEvent: {}
+[6.309984] (-) TimerEvent: {}
+[6.410191] (-) TimerEvent: {}
+[6.510401] (-) TimerEvent: {}
+[6.610608] (-) TimerEvent: {}
+[6.710818] (-) TimerEvent: {}
+[6.811022] (-) TimerEvent: {}
+[6.911258] (-) TimerEvent: {}
+[7.011497] (-) TimerEvent: {}
+[7.111733] (-) TimerEvent: {}
+[7.211953] (-) TimerEvent: {}
+[7.312188] (-) TimerEvent: {}
+[7.412397] (-) TimerEvent: {}
+[7.512597] (-) TimerEvent: {}
+[7.612791] (-) TimerEvent: {}
+[7.712986] (-) TimerEvent: {}
+[7.813182] (-) TimerEvent: {}
+[7.913385] (-) TimerEvent: {}
+[8.013581] (-) TimerEvent: {}
+[8.113778] (-) TimerEvent: {}
+[8.213974] (-) TimerEvent: {}
+[8.314171] (-) TimerEvent: {}
+[8.414373] (-) TimerEvent: {}
+[8.514571] (-) TimerEvent: {}
+[8.614769] (-) TimerEvent: {}
+[8.714964] (-) TimerEvent: {}
+[8.815159] (-) TimerEvent: {}
+[8.915307] (-) TimerEvent: {}
+[9.015501] (-) TimerEvent: {}
+[9.115695] (-) TimerEvent: {}
+[9.215902] (-) TimerEvent: {}
+[9.316116] (-) TimerEvent: {}
+[9.416306] (-) TimerEvent: {}
+[9.516508] (-) TimerEvent: {}
+[9.616717] (-) TimerEvent: {}
+[9.716933] (-) TimerEvent: {}
+[9.719409] (turtlebot3_gazebo) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable turtlebot3_drive\x1b[0m\n'}
+[9.817019] (-) TimerEvent: {}
+[9.917218] (-) TimerEvent: {}
+[9.992649] (turtlebot3_gazebo) StdoutLine: {'line': b'[100%] Built target turtlebot3_drive\n'}
+[10.001090] (turtlebot3_gazebo) CommandEnded: {'returncode': 0}
+[10.001531] (turtlebot3_gazebo) JobProgress: {'identifier': 'turtlebot3_gazebo', 'progress': 'install'}
+[10.007774] (turtlebot3_gazebo) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/build/turtlebot3_gazebo'], 'cwd': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/build/turtlebot3_gazebo', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share:/home/shiyao/turtlebot3_ws/install/turtlebot3_gazebo/share', 'USER': 'shiyao', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_msgs/lib:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk/lib:/home/shiyao/turtlebot3_ws/install/turtlebot3_msgs/lib:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/shiyao', 'OLDPWD': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2632', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', '_colcon_cd_root': '/opt/ros/jazzy/', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install:/home/shiyao/turtlebot3_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'shiyao', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'shiyao', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/shiyao-MS-7D99:@/tmp/.ICE-unix/2584,unix/shiyao-MS-7D99:/tmp/.ICE-unix/2584', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/7edc9e63_705f_43f0_99c5_a08529b715da', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.CMQYD3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.873', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_teleop:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_simulations:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_bringup:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_node:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_navigation2:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_fake_node:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_example:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_msgs:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_description:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_cartographer:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_examples:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk:/home/shiyao/turtlebot3_ws/install/turtlebot3:/home/shiyao/turtlebot3_ws/install/turtlebot3_teleop:/home/shiyao/turtlebot3_ws/install/turtlebot3_simulations:/home/shiyao/turtlebot3_ws/install/turtlebot3_bringup:/home/shiyao/turtlebot3_ws/install/turtlebot3_node:/home/shiyao/turtlebot3_ws/install/turtlebot3_navigation2:/home/shiyao/turtlebot3_ws/install/turtlebot3_fake_node:/home/shiyao/turtlebot3_ws/install/turtlebot3_example:/home/shiyao/turtlebot3_ws/install/turtlebot3_msgs:/home/shiyao/turtlebot3_ws/install/turtlebot3_gazebo:/home/shiyao/turtlebot3_ws/install/turtlebot3_description:/home/shiyao/turtlebot3_ws/install/turtlebot3_cartographer:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_examples:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/build/turtlebot3_gazebo', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.12/site-packages:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_example/lib/python3.12/site-packages:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_msgs/lib/python3.12/site-packages:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib/python3.12/site-packages:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages:/home/shiyao/turtlebot3_ws/build/turtlebot3_teleop:/home/shiyao/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.12/site-packages:/home/shiyao/turtlebot3_ws/build/turtlebot3_example:/home/shiyao/turtlebot3_ws/install/turtlebot3_example/lib/python3.12/site-packages:/home/shiyao/turtlebot3_ws/install/turtlebot3_msgs/lib/python3.12/site-packages:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib/python3.12/site-packages:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_simulations:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_bringup:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_node:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_navigation2:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_fake_node:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_msgs:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_description:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_cartographer:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_examples:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/dynamixel_sdk:/home/shiyao/turtlebot3_ws/install/turtlebot3:/home/shiyao/turtlebot3_ws/install/turtlebot3_simulations:/home/shiyao/turtlebot3_ws/install/turtlebot3_bringup:/home/shiyao/turtlebot3_ws/install/turtlebot3_node:/home/shiyao/turtlebot3_ws/install/turtlebot3_navigation2:/home/shiyao/turtlebot3_ws/install/turtlebot3_fake_node:/home/shiyao/turtlebot3_ws/install/turtlebot3_msgs:/home/shiyao/turtlebot3_ws/install/turtlebot3_description:/home/shiyao/turtlebot3_ws/install/turtlebot3_cartographer:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_examples:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/shiyao/turtlebot3_ws/install/dynamixel_sdk:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_teleop:/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_example:/home/shiyao/turtlebot3_ws/install/turtlebot3_teleop:/home/shiyao/turtlebot3_ws/install/turtlebot3_example:/home/shiyao/turtlebot3_ws/install/turtlebot3_gazebo:/opt/ros/jazzy'}), 'shell': False}
+[10.016387] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[10.016521] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/lib/turtlebot3_gazebo/turtlebot3_drive\n'}
+[10.017276] (-) TimerEvent: {}
+[10.020074] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/lib/turtlebot3_gazebo/turtlebot3_drive" to ""\n'}
+[10.020163] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/lib/turtlebot3_gazebo/libobstacles.so\n'}
+[10.020727] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/lib/turtlebot3_gazebo/libobstacles.so" to ""\n'}
+[10.020771] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/lib/turtlebot3_gazebo/libobstacle1.so\n'}
+[10.021135] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/lib/turtlebot3_gazebo/libobstacle1.so" to ""\n'}
+[10.021180] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/lib/turtlebot3_gazebo/libobstacle2.so\n'}
+[10.021538] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/lib/turtlebot3_gazebo/libobstacle2.so" to ""\n'}
+[10.021584] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch\n'}
+[10.021648] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_dqn_stage3.launch.py\n'}
+[10.021695] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_house.launch.py\n'}
+[10.021740] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/empty_world.launch.py\n'}
+[10.021794] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_dqn_stage4.launch.py\n'}
+[10.021846] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_dqn_stage1.launch.py\n'}
+[10.021881] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_world.launch.py\n'}
+[10.021929] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_dqn_stage1_custom.launch.py\n'}
+[10.021972] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_dqn_stage2.launch.py\n'}
+[10.022011] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/spawn_turtlebot3.launch.py\n'}
+[10.022046] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/robot_state_publisher.launch.py\n'}
+[10.022095] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models\n'}
+[10.022129] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common\n'}
+[10.022164] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/model.config\n'}
+[10.022217] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes\n'}
+[10.022252] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/waffle_base.dae\n'}
+[10.022288] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/bases\n'}
+[10.022318] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/bases/waffle_pi_base.stl\n'}
+[10.026042] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/bases/waffle_base.stl\n'}
+[10.033234] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/bases/burger_base.stl\n'}
+[10.035275] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/tire.dae\n'}
+[10.035371] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/wheels\n'}
+[10.035421] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/wheels/right_tire.stl\n'}
+[10.035873] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/wheels/left_tire.stl\n'}
+[10.036382] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/lds.dae\n'}
+[10.036436] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/r200.dae\n'}
+[10.036559] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/burger_base.dae\n'}
+[10.036603] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/waffle_pi_base.dae\n'}
+[10.036649] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/sensors\n'}
+[10.036693] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/sensors/r200.jpg\n'}
+[10.036733] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/sensors/r200.dae\n'}
+[10.036864] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/sensors/astra.jpg\n'}
+[10.036946] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/sensors/lds.stl\n'}
+[10.037254] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_common/meshes/sensors/astra.dae\n'}
+[10.041005] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger_cam\n'}
+[10.041088] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger_cam/model.config\n'}
+[10.041134] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger_cam/model.sdf\n'}
+[10.041186] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger_cam/model-1_4.sdf\n'}
+[10.041222] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi\n'}
+[10.041258] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi/model.config\n'}
+[10.041312] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi/model-1_4_.sdf\n'}
+[10.041348] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi/model.sdf\n'}
+[10.041383] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger\n'}
+[10.041432] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger/model.config\n'}
+[10.041469] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger/model.sdf\n'}
+[10.041505] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger/model-1_4.sdf\n'}
+[10.041554] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house\n'}
+[10.041588] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/first_2015_trash_can\n'}
+[10.041621] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/first_2015_trash_can/model.config\n'}
+[10.041655] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/first_2015_trash_can/meshes\n'}
+[10.041699] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/first_2015_trash_can/meshes/trash_can.dae\n'}
+[10.042073] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/first_2015_trash_can/model.sdf\n'}
+[10.042156] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/model.config\n'}
+[10.042245] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox\n'}
+[10.042309] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/model.config\n'}
+[10.042402] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/meshes\n'}
+[10.042516] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/meshes/mailbox.dae\n'}
+[10.042566] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/model.sdf\n'}
+[10.042623] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials\n'}
+[10.042718] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials/scripts\n'}
+[10.042843] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials/scripts/mailbox.material\n'}
+[10.042897] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials/textures\n'}
+[10.042946] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials/textures/Mailbox_Spec.png\n'}
+[10.043013] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials/textures/Mailbox_Diffuse.tga.orig\n'}
+[10.043308] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/materials/textures/Mailbox_Diffuse.png\n'}
+[10.043469] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/model-1_3.sdf\n'}
+[10.043553] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/mailbox/model-1_4.sdf\n'}
+[10.043620] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table\n'}
+[10.043674] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/model.config\n'}
+[10.043720] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/meshes\n'}
+[10.043767] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/meshes/cafe_table.dae\n'}
+[10.043815] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/model.sdf\n'}
+[10.043850] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/materials\n'}
+[10.043912] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/materials/textures\n'}
+[10.043972] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/materials/textures/Wood_Floor_Dark.jpg\n'}
+[10.044052] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/materials/textures/Maple.jpg\n'}
+[10.044103] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/cafe_table/model-1_4.sdf\n'}
+[10.044136] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble\n'}
+[10.044168] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/model.config\n'}
+[10.044202] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/meshes\n'}
+[10.044236] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/meshes/table_lightmap.dae\n'}
+[10.044295] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/model.sdf\n'}
+[10.044331] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/materials\n'}
+[10.044366] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/materials/scripts\n'}
+[10.044399] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/materials/scripts/table_lightmap.material\n'}
+[10.044445] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/materials/textures\n'}
+[10.044482] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/materials/textures/table_lightmap.png\n'}
+[10.044524] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/materials/textures/marble.png\n'}
+[10.044570] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/table_marble/model-1_4.sdf\n'}
+[10.044616] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/model.sdf\n'}
+[10.044712] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/textures\n'}
+[10.044752] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/textures/wood.png\n'}
+[10.044828] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/textures/bricks.png\n'}
+[10.045685] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world\n'}
+[10.045754] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/goal_box\n'}
+[10.045798] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/goal_box/model.config\n'}
+[10.045843] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/goal_box/model.sdf\n'}
+[10.045888] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacle1\n'}
+[10.045946] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacle1/model.config\n'}
+[10.046034] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacle1/model.sdf\n'}
+[10.046080] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/inner_walls\n'}
+[10.046115] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/inner_walls/model.config\n'}
+[10.046150] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/inner_walls/model.sdf\n'}
+[10.046184] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/inner_walls/textures\n'}
+[10.046220] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/inner_walls/textures/wood.png\n'}
+[10.046271] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/model.config\n'}
+[10.046318] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacle2\n'}
+[10.046353] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacle2/model.config\n'}
+[10.046386] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacle2/model.sdf\n'}
+[10.046420] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/model.sdf\n'}
+[10.046468] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/textures\n'}
+[10.046502] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/textures/wood.png\n'}
+[10.046536] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacles\n'}
+[10.046568] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacles/model.config\n'}
+[10.046617] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacles/model.sdf\n'}
+[10.046660] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle\n'}
+[10.046695] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle/model.config\n'}
+[10.046729] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle/model.sdf\n'}
+[10.046764] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle/model-1_4.sdf\n'}
+[10.046814] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world\n'}
+[10.046850] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/model.config\n'}
+[10.046898] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/meshes\n'}
+[10.046971] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/meshes/wall.dae\n'}
+[10.047030] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/meshes/hexagon.dae\n'}
+[10.047083] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/model.sdf\n'}
+[10.047120] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/model-1_4.sdf\n'}
+[10.047155] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//params\n'}
+[10.047189] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//params/turtlebot3_burger_cam_bridge.yaml\n'}
+[10.047223] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//params/turtlebot3_waffle_pi_bridge.yaml\n'}
+[10.047256] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//params/turtlebot3_waffle_bridge.yaml\n'}
+[10.047304] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//params/turtlebot3_burger_bridge.yaml\n'}
+[10.047363] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//rviz\n'}
+[10.047401] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//rviz/tb3_gazebo.rviz\n'}
+[10.047436] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf\n'}
+[10.047471] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf/turtlebot3_burger.urdf\n'}
+[10.047505] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf/common_properties.urdf\n'}
+[10.047538] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf/turtlebot3_burger_cam.urdf\n'}
+[10.047570] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf/turtlebot3_waffle_pi.urdf\n'}
+[10.047603] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//urdf/turtlebot3_waffle.urdf\n'}
+[10.047660] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds\n'}
+[10.047698] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_house.world\n'}
+[10.047739] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage4.world\n'}
+[10.047773] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_autorace_2020.world\n'}
+[10.047823] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage2.world\n'}
+[10.047858] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_world.world\n'}
+[10.047918] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/empty_world.world\n'}
+[10.047980] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage3.world\n'}
+[10.048036] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage1.world\n'}
+[10.048076] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/include/\n'}
+[10.048109] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/include//turtlebot3_gazebo\n'}
+[10.048142] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/include//turtlebot3_gazebo/obstacle1.hpp\n'}
+[10.048176] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/include//turtlebot3_gazebo/obstacles.hpp\n'}
+[10.048232] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/include//turtlebot3_gazebo/traffic_light_plugin.hpp\n'}
+[10.048282] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/include//turtlebot3_gazebo/traffic_bar_plugin.hpp\n'}
+[10.048316] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/include//turtlebot3_gazebo/turtlebot3_drive.hpp\n'}
+[10.048350] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/include//turtlebot3_gazebo/obstacle2.hpp\n'}
+[10.048384] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/ament_index/resource_index/package_run_dependencies/turtlebot3_gazebo\n'}
+[10.048418] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/ament_index/resource_index/parent_prefix_path/turtlebot3_gazebo\n'}
+[10.048452] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/environment/ament_prefix_path.sh\n'}
+[10.048502] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/environment/ament_prefix_path.dsv\n'}
+[10.048539] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/environment/path.sh\n'}
+[10.048572] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/environment/path.dsv\n'}
+[10.048617] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/local_setup.bash\n'}
+[10.048651] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/local_setup.sh\n'}
+[10.048683] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/local_setup.zsh\n'}
+[10.048731] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/local_setup.dsv\n'}
+[10.048765] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/package.dsv\n'}
+[10.048805] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/ament_index/resource_index/packages/turtlebot3_gazebo\n'}
+[10.048845] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[10.048888] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[10.048944] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/cmake/turtlebot3_gazeboConfig.cmake\n'}
+[10.049017] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/cmake/turtlebot3_gazeboConfig-version.cmake\n'}
+[10.049066] (turtlebot3_gazebo) StdoutLine: {'line': b'-- Installing: /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/install/turtlebot3_gazebo/share/turtlebot3_gazebo/package.xml\n'}
+[10.050227] (turtlebot3_gazebo) CommandEnded: {'returncode': 0}
+[10.059709] (turtlebot3_gazebo) JobEnded: {'identifier': 'turtlebot3_gazebo', 'rc': 0}
+[10.060971] (-) EventReactorShutdown: {}

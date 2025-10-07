@@ -150,93 +150,152 @@ void Turtlebot3Drive::update_cmd_vel(double linear, double angular)
 /********************************************************************************
 ** Update functions
 ********************************************************************************/
+
 void Turtlebot3Drive::update_callback()
 {
     static uint8_t state = GET_TB3_DIRECTION;
-
-    const double DEG90 = 90.0 * DEG2RAD;
-    const double forward_clear = 1;    // front free distance
-    const double side_clear = 0.4;       // right free distance
-
-    double front = scan_data_[CENTER];
-    double right = scan_data_[RIGHT];
-    double left = scan_data_[LEFT];
-
-    bool no_right_wall = (right > side_clear);
-    bool no_front_wall = (front > forward_clear);
+    static bool turning = false;
     
-	switch (state)
+    // Tuning parameters
+    const double WALL_FOLLOW_DISTANCE = 0.3;  // Ideal distance from right wall
+    const double WALL_DETECT_RANGE = 0.5;     // Max range to detect wall
+    const double FRONT_OBSTACLE_DIST = 0.4;   // Min clear distance ahead
+    const double DEG90 = M_PI / 2.0;
+    const double ANGLE_TOLERANCE = 0.1;       // Tolerance for turn completion (radians)
+    
+    // LIDAR readings
+    double front = scan_data_[CENTER];
+    double left = scan_data_[LEFT];
+    double right = scan_data_[RIGHT];
+    
+    // Wall detection flags
+    bool front_clear = (front > FRONT_OBSTACLE_DIST);
+    bool wall_on_right = (right < WALL_DETECT_RANGE);
+    bool too_close_right = (right < WALL_FOLLOW_DISTANCE - 0.1);
+    bool too_far_right = (right > WALL_FOLLOW_DISTANCE + 0.1);
+    
+    // Debug logging (throttled to once per second)
+    RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 1000,
+        "[SENSORS] F:%.2f L:%.2f R:%.2f | State:%d | Pose:%.2f", 
+        front, left, right, state, robot_pose_);
+    
+    switch (state)
     {
         case GET_TB3_DIRECTION:
-            // Right-wall rule: try right first, then forward, else left
-            if (no_right_wall)
+        {
+            turning = false;
+            
+            // Right-wall following priority:
+            // 1. If no wall on right -> turn right to find wall
+            // 2. If front blocked -> turn left
+            // 3. Otherwise -> follow wall forward
+            
+            if (!wall_on_right && front_clear)
             {
-                RCLCPP_INFO(this->get_logger(), "[ACTION] Turning RIGHT - no wall detected on right");
+                // Lost the wall, turn right to find it
+                RCLCPP_INFO(this->get_logger(), "[DECISION] No right wall detected - turning RIGHT");
                 prev_robot_pose_ = robot_pose_;
+                turning = true;
                 state = TB3_RIGHT_TURN;
             }
-            else if (no_front_wall)
+            else if (!front_clear)
             {
-                RCLCPP_INFO(this->get_logger(), "[ACTION] Moving FORWARD - path clear");
-                state = TB3_DRIVE_FORWARD;
+                // Obstacle ahead, turn left
+                RCLCPP_INFO(this->get_logger(), "[DECISION] Front blocked (%.2fm) - turning LEFT", front);
+                prev_robot_pose_ = robot_pose_;
+                turning = true;
+                state = TB3_LEFT_TURN;
             }
             else
             {
-                RCLCPP_INFO(this->get_logger(), "[ACTION] Turning LEFT - wall ahead and on right");
-                prev_robot_pose_ = robot_pose_;
-                state = TB3_LEFT_TURN;
+                // Follow the wall
+                state = TB3_DRIVE_FORWARD;
             }
             break;
+        }
 
         case TB3_DRIVE_FORWARD:
-            RCLCPP_INFO(this->get_logger(), "[MOVING] Driving forward...");
-            update_cmd_vel(LINEAR_VELOCITY, 0.0);
-            state = GET_TB3_DIRECTION;
+        {
+            double linear_vel = LINEAR_VELOCITY;
+            double angular_vel = 0.0;
+            
+            // Wall-following adjustment: proportional control
+            if (wall_on_right)
+            {
+                double error = right - WALL_FOLLOW_DISTANCE;
+                double Kp = 2.0;  // Proportional gain
+                angular_vel = Kp * error;
+                
+                // Clamp angular velocity
+                if (angular_vel > 0.5) angular_vel = 0.5;
+                if (angular_vel < -0.5) angular_vel = -0.5;
+                
+                RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 500,
+                    "[FOLLOWING] Wall dist: %.2f, error: %.2f, ang_vel: %.2f", 
+                    right, error, angular_vel);
+            }
+            
+            update_cmd_vel(linear_vel, angular_vel);
+            
+            // Check if we need to make a decision
+            if (!front_clear || !wall_on_right)
+            {
+                state = GET_TB3_DIRECTION;
+            }
             break;
+        }
 
         case TB3_RIGHT_TURN:
-		{
-            // Turn 90° clockwise
+        {
+            // Turn 90° clockwise (negative angular velocity)
             double angle_diff = normalise_angle(robot_pose_ - prev_robot_pose_);
-            RCLCPP_INFO(this->get_logger(), "[TURNING] Right turn... angle_diff = %.2f rad", angle_diff);
-            if (fabs(angle_diff) >= DEG90)
+            
+            RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 200,
+                "[RIGHT TURN] Progress: %.1f°", fabs(angle_diff) * RAD2DEG);
+            
+            if (fabs(angle_diff) >= (DEG90 - ANGLE_TOLERANCE))
             {
-                RCLCPP_INFO(this->get_logger(), "[TURN DONE] Right 90° turn complete");
+                RCLCPP_INFO(this->get_logger(), "[TURN COMPLETE] Right turn finished");
                 update_cmd_vel(0.0, 0.0);
-                prev_robot_pose_ = robot_pose_;
-                state = TB3_DRIVE_FORWARD;
+                turning = false;
+                state = GET_TB3_DIRECTION;
             }
             else
             {
                 update_cmd_vel(0.0, -ANGULAR_VELOCITY);
             }
             break;
-		}
+        }
 
         case TB3_LEFT_TURN:
-		{
-            // Turn 90° counter-clockwise
+        {
+            // Turn 90° counter-clockwise (positive angular velocity)
             double angle_diff = normalise_angle(robot_pose_ - prev_robot_pose_);
-            RCLCPP_INFO(this->get_logger(), "[TURNING] Left turn... angle_diff = %.2f rad", angle_diff);
-			if (fabs(angle_diff) >= DEG90)
+            
+            RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 200,
+                "[LEFT TURN] Progress: %.1f°", fabs(angle_diff) * RAD2DEG);
+            
+            if (fabs(angle_diff) >= (DEG90 - ANGLE_TOLERANCE))
             {
-				RCLCPP_INFO(this->get_logger(), "[TURN DONE] Left 90° turn complete");
-                prev_robot_pose_ = robot_pose_;
-                state = TB3_DRIVE_FORWARD;
+                RCLCPP_INFO(this->get_logger(), "[TURN COMPLETE] Left turn finished");
+                update_cmd_vel(0.0, 0.0);
+                turning = false;
+                state = GET_TB3_DIRECTION;
             }
             else
             {
                 update_cmd_vel(0.0, ANGULAR_VELOCITY);
             }
             break;
-		}
+        }
+
         default:
-			RCLCPP_WARN(this->get_logger(), "[WARN] Unknown state, resetting...");
+            RCLCPP_WARN(this->get_logger(), "[ERROR] Unknown state %d - resetting", state);
+            update_cmd_vel(0.0, 0.0);
             state = GET_TB3_DIRECTION;
             break;
     }
 }
-
 /*******************************************************************************
 ** Main
 *******************************************************************************/

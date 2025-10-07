@@ -1,0 +1,10 @@
+[01m[K/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:[m[K In member function ‘[01m[Kvoid Turtlebot3Drive::[01;32m[Kupdate_callback[m[K()[m[K’:
+[01m[K/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:245:17:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kturning[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  245 |     static bool [01;35m[Kturning[m[K = false;
+      |                 [01;35m[K^~~~~~~[m[K
+[01m[K/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:262:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ktoo_close_right[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  262 |     bool [01;35m[Ktoo_close_right[m[K = (right < WALL_FOLLOW_DISTANCE - 0.1);
+      |          [01;35m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/turtlebot3_drive.cpp:263:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ktoo_far_right[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  263 |     bool [01;35m[Ktoo_far_right[m[K = (right > WALL_FOLLOW_DISTANCE + 0.1);
+      |          [01;35m[K^~~~~~~~~~~~~[m[K

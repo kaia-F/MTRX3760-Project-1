@@ -1,7 +1,7 @@
 CMakeFiles/obstacles.dir/src/obstacles.cpp.o: \
- /home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/obstacles.cpp \
+ /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src/obstacles.cpp \
  /usr/include/stdc-predef.h \
- /home/shiyao/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/turtlebot3_gazebo/obstacles.hpp \
+ /home/shiyao/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/turtlebot3_gazebo/obstacles.hpp \
  /usr/include/c++/13/chrono /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
