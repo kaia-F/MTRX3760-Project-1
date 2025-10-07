@@ -49,9 +49,6 @@ Turtlebot3Drive::Turtlebot3Drive()
   robot_pose_ = 0.0;
   // prev_robot_pose_ = yaw remembered before a turn (so robot knows when to stop turning).
   prev_robot_pose_ = 0.0;
-  
-  current_x_ = 0.0;
-  current_y_ = 0.0;
 
   /************************************************************
   ** Initialise ROS publishers and subscribers
@@ -115,9 +112,6 @@ Reads quaternion orientation from odometry.
 */
 void Turtlebot3Drive::odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg)
 {
-  // Get position
-  current_x_ = msg->pose.pose.position.x;
-  current_y_ = msg->pose.pose.position.y;
 
   tf2::Quaternion q(
     msg->pose.pose.orientation.x,
@@ -164,18 +158,16 @@ void Turtlebot3Drive::update_callback()
 {
     static uint8_t state = TB3_DRIVE_FORWARD;
     static uint8_t prev_state = GET_TB3_DIRECTION;
-    static double forward_start_x = 0.0;
-    static double forward_start_y = 0.0;
 
     
     // Tuning parameters
-    const double WALL_FOLLOW_DISTANCE = 0.3;  // Ideal distance from right wall
+    const double TARGET_WALL_DIST = 0.4;  // Ideal distance from right wall
     const double WALL_DETECT_RANGE = 0.6;     // Max range to detect wall
-    const double FRONT_OBSTACLE_DIST = 0.4;   // Min clear distance ahead
-    const double COMMIT_FORWARD_DIST = 0.5;   // Distance to travel after right turn
+    const double FRONT_OBSTACLE_DIST = 0.5;   // Min clear distance ahead
     const double DEG90 = M_PI / 2.0;
-    const double ANGLE_TOLERANCE = 0.1;       // Tolerance for turn completion (radians)
-    
+    const double ANGLE_TOLERANCE = 0.05;       // Tolerance for turn completion (radians)
+    const double Kp = 1.5; 
+
     // LIDAR readings
     double front = scan_data_[CENTER];
     double left = scan_data_[LEFT];
@@ -184,7 +176,14 @@ void Turtlebot3Drive::update_callback()
     // Wall detection flags
     bool front_clear = (front > FRONT_OBSTACLE_DIST);
     bool wall_on_right = (right < WALL_DETECT_RANGE);
-    
+
+    if (scan_data_[CENTER] == 0.0 && scan_data_[LEFT] == 0.0 && scan_data_[RIGHT] == 0.0)
+    {
+        // LIDAR not ready — just stop and wait
+        update_cmd_vel(0.0, 0.0);
+        return;
+    }
+
     // Log only when state changes
     if (state != prev_state)
     {
@@ -193,7 +192,6 @@ void Turtlebot3Drive::update_callback()
         RCLCPP_INFO(this->get_logger(), "[STATE CHANGE] %s -> %s", 
             state_names[prev_state], state_names[state]);
         RCLCPP_INFO(this->get_logger(), "[SENSORS] Front:%.2f Left:%.2f Right:%.2f", front, left, right);
-        //RCLCPP_INFO(this->get_logger(), "========================================");
         prev_state = state;
     }
     
@@ -231,17 +229,35 @@ void Turtlebot3Drive::update_callback()
 
         case TB3_DRIVE_FORWARD:
         {
-            double linear_vel = LINEAR_VELOCITY;
-            double angular_vel = 0.0;
+            // SMOOTH wall following with proportional control
+            double linear = LINEAR_VELOCITY;
+            double angular = 0.0;
             
-            //RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 500, "[MOVING] Forward | Front: %.2fm, Right: %.2fm", front, right);
+            if (wall_on_right)
+            {
+                // Calculate error: positive = too far, negative = too close
+                double error = right - TARGET_WALL_DIST;
+                
+                // Proportional control: steer toward wall if too far, away if too close
+                angular = -Kp * error;  // Negative because right wall
+                
+                // Limit angular velocity to prevent oscillation
+                const double MAX_ANGULAR = 0.6;
+                if (angular > MAX_ANGULAR) angular = MAX_ANGULAR;
+                if (angular < -MAX_ANGULAR) angular = -MAX_ANGULAR;
+                
+                // Reduce linear speed during sharp corrections
+                if (fabs(angular) > 0.3)
+                {
+                    linear = LINEAR_VELOCITY * 0.7;  // Slow down 30% during corrections
+                }
+            }
             
-            update_cmd_vel(linear_vel, angular_vel);
+            update_cmd_vel(linear, angular);
             
-            // Check if we need to make a decision
+            // Check if conditions changed
             if (!front_clear || !wall_on_right)
             {
-                RCLCPP_INFO(this->get_logger(), "[CHECK] Conditions changed - returning to decision state");
                 state = GET_TB3_DIRECTION;
             }
             break;
@@ -258,12 +274,7 @@ void Turtlebot3Drive::update_callback()
             {
                 //RCLCPP_INFO(this->get_logger(), "[TURN COMPLETE] Right turn finished - committing forward");
                 update_cmd_vel(0.0, 0.0);
-                
-                // Record starting position for forward commitment
-                forward_start_x = current_x_;
-                forward_start_y = current_y_;
-                
-                state = TB3_DRIVE_FORWARD_COMMIT;
+                state = GET_TB3_DIRECTION;
             }
             else
             {
@@ -288,37 +299,6 @@ void Turtlebot3Drive::update_callback()
             else
             {
                 update_cmd_vel(0.0, ANGULAR_VELOCITY);
-            }
-            break;
-        }
-
-        case TB3_DRIVE_FORWARD_COMMIT:
-        {
-            // After right turn, commit to moving forward a set distance
-            double distance_traveled = sqrt(
-                pow(current_x_ - forward_start_x, 2) + 
-                pow(current_y_ - forward_start_y, 2)
-            );
-            
-            //RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 200, "[COMMIT FORWARD] Distance: %.2fm / %.2fm | Front: %.2fm", distance_traveled, COMMIT_FORWARD_DIST, front);
-            
-            // Emergency stop if wall detected ahead
-            if ((!front_clear)||(wall_on_right))
-            {
-                //RCLCPP_WARN(this->get_logger(), "[COMMIT ABORT] Wall detected ahead - stopping early");
-                update_cmd_vel(0.0, 0.0);
-                state = GET_TB3_DIRECTION;
-            }
-            else if (distance_traveled >= COMMIT_FORWARD_DIST)
-            {
-                //RCLCPP_INFO(this->get_logger(), "[COMMIT DONE] Traveled %.2fm - returning to decision", distance_traveled);
-                update_cmd_vel(0.0, 0.0);
-                state = GET_TB3_DIRECTION;
-            }
-            else
-            {
-                // Keep moving forward
-                update_cmd_vel(LINEAR_VELOCITY, 0.0);
             }
             break;
         }
