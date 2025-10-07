@@ -162,7 +162,7 @@ void Turtlebot3Drive::update_cmd_vel(double linear, double angular)
 
 void Turtlebot3Drive::update_callback()
 {
-    static uint8_t state = GET_TB3_DIRECTION;
+    static uint8_t state = TB3_DRIVE_FORWARD;
     static uint8_t prev_state = GET_TB3_DIRECTION;
     static double forward_start_x = 0.0;
     static double forward_start_y = 0.0;
@@ -303,7 +303,7 @@ void Turtlebot3Drive::update_callback()
             //RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 200, "[COMMIT FORWARD] Distance: %.2fm / %.2fm | Front: %.2fm", distance_traveled, COMMIT_FORWARD_DIST, front);
             
             // Emergency stop if wall detected ahead
-            if (!front_clear)
+            if ((!front_clear)||(wall_on_right))
             {
                 //RCLCPP_WARN(this->get_logger(), "[COMMIT ABORT] Wall detected ahead - stopping early");
                 update_cmd_vel(0.0, 0.0);
