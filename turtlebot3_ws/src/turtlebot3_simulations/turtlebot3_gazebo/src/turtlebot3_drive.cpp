@@ -50,6 +50,9 @@ Turtlebot3Drive::Turtlebot3Drive()
   // prev_robot_pose_ = yaw remembered before a turn (so robot knows when to stop turning).
   prev_robot_pose_ = 0.0;
 
+  current_x_ = 0.0;
+  current_y_ = 0.0;
+
   /************************************************************
   ** Initialise ROS publishers and subscribers
   ************************************************************/
@@ -112,6 +115,8 @@ Reads quaternion orientation from odometry.
 */
 void Turtlebot3Drive::odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg)
 {
+  current_x_ = msg->pose.pose.position.x;
+  current_y_ = msg->pose.pose.position.y;
 
   tf2::Quaternion q(
     msg->pose.pose.orientation.x,
@@ -161,12 +166,15 @@ void Turtlebot3Drive::update_callback()
 
     
     // Tuning parameters
-    const double TARGET_WALL_DIST = 0.4;  // Ideal distance from right wall
-    const double WALL_DETECT_RANGE = 0.6;     // Max range to detect wall
+    const double TARGET_WALL_DIST = 0.36;  // Ideal distance from right wall
+    const double WALL_DETECT_RANGE = 0.7;     // Max range to detect wall
     const double FRONT_OBSTACLE_DIST = 0.5;   // Min clear distance ahead
     const double DEG90 = M_PI / 2.0;
-    const double ANGLE_TOLERANCE = 0.05;       // Tolerance for turn completion (radians)
-    const double Kp = 1.5; 
+    const double ANGLE_TOLERANCE = 0.03;       // Tolerance for turn completion (radians)
+    const double Kp = 0.5; 
+    const double MAX_ANGULAR = 0.35;           // REDUCED max turn rate
+    const double DEADBAND = 0.05;             // Ignore tiny errors (±3cm)
+    
 
     // LIDAR readings
     double front = scan_data_[CENTER];
@@ -176,6 +184,10 @@ void Turtlebot3Drive::update_callback()
     // Wall detection flags
     bool front_clear = (front > FRONT_OBSTACLE_DIST);
     bool wall_on_right = (right < WALL_DETECT_RANGE);
+    bool wall_on_left = (left < WALL_DETECT_RANGE);
+    
+    static double forward_start_x = 0.0;
+    static double forward_start_y = 0.0;
 
     if (scan_data_[CENTER] == 0.0 && scan_data_[LEFT] == 0.0 && scan_data_[RIGHT] == 0.0)
     {
@@ -204,12 +216,21 @@ void Turtlebot3Drive::update_callback()
             // 2. If front blocked -> turn left
             // 3. Otherwise -> follow wall forward
             
-            if (!wall_on_right)
+            if (wall_on_left && !wall_on_right)
+            {
+                // Special case: wall on left, no wall on right at startup
+                RCLCPP_INFO(this->get_logger(), "Wall on left only — performing 180° right turn");
+                prev_robot_pose_ = robot_pose_;
+                state = TB3_RIGHT_TURN_180;
+            }
+            else if (!wall_on_right)
             {
                 // Lost the wall, turn right to find it
                 //RCLCPP_INFO(this->get_logger(), "[DECISION] No right wall detected - turning RIGHT");
                 prev_robot_pose_ = robot_pose_;
-                state = TB3_RIGHT_TURN;
+                forward_start_x = current_x_;
+                forward_start_y = current_y_;
+                state = TB3_PRE_RIGHT_COMMIT;
             }
             else if (!front_clear)
             {
@@ -229,7 +250,7 @@ void Turtlebot3Drive::update_callback()
 
         case TB3_DRIVE_FORWARD:
         {
-            // SMOOTH wall following with proportional control
+            // SMOOTH wall following with proportional control + deadband
             double linear = LINEAR_VELOCITY;
             double angular = 0.0;
             
@@ -238,19 +259,23 @@ void Turtlebot3Drive::update_callback()
                 // Calculate error: positive = too far, negative = too close
                 double error = right - TARGET_WALL_DIST;
                 
-                // Proportional control: steer toward wall if too far, away if too close
-                angular = -Kp * error;  // Negative because right wall
-                
-                // Limit angular velocity to prevent oscillation
-                const double MAX_ANGULAR = 0.6;
-                if (angular > MAX_ANGULAR) angular = MAX_ANGULAR;
-                if (angular < -MAX_ANGULAR) angular = -MAX_ANGULAR;
-                
-                // Reduce linear speed during sharp corrections
-                if (fabs(angular) > 0.3)
+                // DEADBAND: Ignore small errors to prevent oscillation
+                if (fabs(error) > DEADBAND)
                 {
-                    linear = LINEAR_VELOCITY * 0.7;  // Slow down 30% during corrections
+                    // Proportional control: steer toward wall if too far, away if too close
+                    angular = -Kp * error;  // Negative because right wall
+                    
+                    // Limit angular velocity to prevent oscillation
+                    if (angular > MAX_ANGULAR) angular = MAX_ANGULAR;
+                    if (angular < -MAX_ANGULAR) angular = -MAX_ANGULAR;
+                    
+                    // Reduce linear speed during corrections
+                    if (fabs(angular) > 0.2)
+                    {
+                        linear = LINEAR_VELOCITY * 0.75;  // Slow down 25% during corrections
+                    }
                 }
+                // else: within deadband, go straight (angular stays 0.0)
             }
             
             update_cmd_vel(linear, angular);
@@ -274,7 +299,14 @@ void Turtlebot3Drive::update_callback()
             {
                 //RCLCPP_INFO(this->get_logger(), "[TURN COMPLETE] Right turn finished - committing forward");
                 update_cmd_vel(0.0, 0.0);
-                state = GET_TB3_DIRECTION;
+
+                // Record where we finished the turn
+                forward_start_x = current_x_;
+                forward_start_y = current_y_;
+
+                // Enter commit forward state
+                state = TB3_POST_RIGHT_COMMIT;
+
             }
             else
             {
@@ -303,6 +335,59 @@ void Turtlebot3Drive::update_callback()
             break;
         }
 
+        case TB3_RIGHT_TURN_180:
+        {
+            double angle_diff = normalise_angle(robot_pose_ - prev_robot_pose_);
+
+            if (fabs(angle_diff) >= (DEG90*2 - ANGLE_TOLERANCE))
+            {
+                update_cmd_vel(0.0, 0.0);
+                state = TB3_DRIVE_FORWARD;
+            }
+            else
+            {
+                update_cmd_vel(0.0, ANGULAR_VELOCITY);
+            }
+            break;
+        }
+
+        case TB3_PRE_RIGHT_COMMIT:
+        {
+            const double COMMIT_FORWARD_DIST = 0.36; // meters
+            const double dx = current_x_ - forward_start_x;
+            const double dy = current_y_ - forward_start_y;
+            const double distance = sqrt(dx*dx + dy*dy);
+
+            if (distance >= COMMIT_FORWARD_DIST)
+            {
+                update_cmd_vel(0.0, 0.0);
+                prev_robot_pose_ = robot_pose_;
+                state = TB3_RIGHT_TURN;
+            }
+            else
+            {
+                update_cmd_vel(LINEAR_VELOCITY, 0.0);
+            }
+            break;
+        }
+        case TB3_POST_RIGHT_COMMIT:
+        {
+            const double COMMIT_FORWARD_DIST = 0.45; // meters
+            const double dx = current_x_ - forward_start_x;
+            const double dy = current_y_ - forward_start_y;
+            const double distance = sqrt(dx*dx + dy*dy);
+
+            if (distance >= COMMIT_FORWARD_DIST)
+            {
+                update_cmd_vel(0.0, 0.0);
+                state = GET_TB3_DIRECTION;
+            }
+            else
+            {
+                update_cmd_vel(LINEAR_VELOCITY, 0.0);
+            }
+            break;
+        }
         default:
             RCLCPP_WARN(this->get_logger(), "[ERROR] Unknown state %d - resetting", state);
             update_cmd_vel(0.0, 0.0);

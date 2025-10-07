@@ -35,7 +35,7 @@
 #define RIGHT  2
 
 #define LINEAR_VELOCITY  0.3
-#define ANGULAR_VELOCITY 1.0
+#define ANGULAR_VELOCITY 0.9
 
 
 // === Helper function declarations ===
@@ -60,6 +60,8 @@ private:
   double robot_pose_;
   double prev_robot_pose_;
   double scan_data_[3];
+  double current_x_;
+  double current_y_;
   
   // ROS timer
   rclcpp::TimerBase::SharedPtr update_timer_;
@@ -77,6 +79,9 @@ private:
     TB3_DRIVE_FORWARD = 1,
     TB3_RIGHT_TURN = 2,
     TB3_LEFT_TURN = 3,
+    TB3_RIGHT_TURN_180 = 4, 
+    TB3_PRE_RIGHT_COMMIT = 5,
+    TB3_POST_RIGHT_COMMIT = 6
   };
 
 };
