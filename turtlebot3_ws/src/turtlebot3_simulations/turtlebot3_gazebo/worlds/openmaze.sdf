@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+    </light>
+    <include>
+      <uri>model://turtlebot3_openmaze</uri>
+      <pose>-1.75 -0.80 0 0 0 0</pose> <!-- Or your desired pose -->
+    </include>
+  </world>
+</sdf>
