@@ -59,8 +59,10 @@ private:
   // Variables
   double robot_pose_;
   double prev_robot_pose_;
-  double scan_data_[5];
-
+  double scan_data_[3];
+  double current_x_;
+  double current_y_;
+  
   // ROS timer
   rclcpp::TimerBase::SharedPtr update_timer_;
 
@@ -76,7 +78,8 @@ private:
     GET_TB3_DIRECTION = 0,
     TB3_DRIVE_FORWARD = 1,
     TB3_RIGHT_TURN = 2,
-    TB3_LEFT_TURN = 3
+    TB3_LEFT_TURN = 3,
+    TB3_DRIVE_FORWARD_COMMIT = 4
   };
 
 };
