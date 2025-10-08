@@ -1,13 +1,41 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
   <world name="default">
+    <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin
+      filename="gz-sim-user-commands-system"
+      name="gz::sim::systems::UserCommands">
+    </plugin>
+    <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+    <plugin
+      filename="gz-sim-sensors-system"
+      name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin
+      filename="gz-sim-imu-system"
+      name="gz::sim::systems::Imu">
+    </plugin>
+    
     <light type="directional" name="sun">
       <cast_shadows>true</cast_shadows>
       <pose>0 0 10 0 0 0</pose>
     </light>
+    
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Ground Plane</uri>
+    </include>
+
     <include>
       <uri>model://turtlebot3_openmaze</uri>
-      <pose>-1.75 -0.80 0 0 0 0</pose> <!-- Or your desired pose -->
+      <pose>-0.49 -0.24 0 0 0 0</pose> <!-- Or your desired pose -->
     </include>
+    
   </world>
 </sdf>
