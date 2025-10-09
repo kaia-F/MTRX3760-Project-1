@@ -1,7 +1,7 @@
 # MTRX3760 Project 1 Project Overview
 This project simulate a Turtlebot 3 in RViz and Gazebo, including simulated laser and camera in 2 different maze setting layouts (an opened maze and a closed maze). When launched, turtlebot autonomously navigate through one of the mazes, using the right wall following logic, until it reaches the maze exit goal as indicated by a green square box.
 
-# Instructions on launch Gazebo and drive node
+# Launch Gazebo and drive node
 This interface environment requires installation of ROS2 jazzy and Gazebo ignition.\
 In Terminal 1, Launch Gazebo:  \
 Kill any leftover Gazebo processes:
@@ -43,3 +43,6 @@ Run the drive node:
 ```bash
 ros2 run turtlebot3_gazebo turtlebot3_drive
 ```
+# Turtlebot setup Testing
+
+# Maze Testing
