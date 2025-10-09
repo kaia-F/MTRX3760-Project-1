@@ -43,6 +43,28 @@ Run the drive node:
 ```bash
 ros2 run turtlebot3_gazebo turtlebot3_drive
 ```
-# Turtlebot setup Testing
+# Turtlebot robot setup testing
+Confirm packages are built and discoverable
+```bash
+ros2 pkg prefix turtlebot3_description
+ros2 pkg prefix turtlebot3_gazebo
+ros2 pkg prefix turtlebot3_msgs
+```
+Check if robot has spawned:  \
+In a new terminal, check for topics including /cmd_vel, /scan, /odom, /tf to confirm the robot is publishing control ready.
+```bash
+ros2 node list | grep -E 'gazebo|spawn|robot_state_publisher'
+ros2 topic list | grep -E '/cmd_vel|/scan|/odom|/tf'
+```
+Publish a test velocity to make the robot roll forward for 3 seconds:
+```bash
+ros2 topic pub -r 10 /cmd_vel geometry_msgs/Twist '{linear: {x: 0.2}, angular: {z: 0.0}}' --qos-durability transient_local
+```
+Or manually control the robot with teleop:
+In a new terminal
+```bash
+export TURTLEBOT3_MODEL=burger
+ros2 run turtlebot3_teleop teleop_keyboard
+```
 
 # Maze Testing
