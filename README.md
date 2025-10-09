@@ -4,7 +4,7 @@ This project simulate a Turtlebot 3 in RViz and Gazebo, including simulated lase
 # Launch Gazebo and drive node
 This interface environment requires installation of ROS2 jazzy and Gazebo ignition.\
 In Terminal 1, Launch Gazebo:  \
-Kill any leftover Gazebo processes:
+Kill any leftover Gazebo processes
 ```bash
 pkill -9 -f gazebo
 pkill -9 -f gzserver
@@ -30,7 +30,7 @@ Launch Gazebo with your custom launch file:
 ```bash
 ros2 launch turtlebot3_gazebo turtlebot3_dqn_stage1_custom.launch.py
 ```
-Terminal 2: Build and run the modified code:
+Terminal 2: Build and run the modified code  \
 Go to workspace
 ```bash
 cd ~/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws
