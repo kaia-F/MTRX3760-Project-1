@@ -60,7 +60,7 @@ Publish a test velocity to make the robot roll forward for 3 seconds:
 ```bash
 ros2 topic pub -r 10 /cmd_vel geometry_msgs/Twist '{linear: {x: 0.2}, angular: {z: 0.0}}' --qos-durability transient_local
 ```
-Or manually control the robot with teleop:
+Or manually control the robot with teleop:  \
 In a new terminal
 ```bash
 export TURTLEBOT3_MODEL=burger
