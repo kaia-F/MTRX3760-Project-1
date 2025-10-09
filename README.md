@@ -1,4 +1,4 @@
-# MTRX3760 Project 1 Project Overview
+# MTRX3760 Project 1: Project Overview
 This project simulate a Turtlebot 3 in RViz and Gazebo, including simulated laser and camera in 2 different maze setting layouts (an opened maze and a closed maze). When launched, turtlebot autonomously navigate through one of the mazes, using the right wall following logic, until it reaches the maze exit goal as indicated by a green square box.
 
 # Launch Gazebo and drive node
