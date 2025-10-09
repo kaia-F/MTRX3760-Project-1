@@ -3,9 +3,10 @@ This project simulate a Turtlebot 3 in RViz and Gazebo, including simulated lase
 
 # Instructions
 This interface environment requires installation of ROS2 jazzy and Gazebo ignition.
-## How to launch Gazebo and drive node:
+How to launch Gazebo and drive node:
+Terminal 1:
 ```bash
-Terminal 1: Launch Gazebo
+Launch Gazebo
 ```
 Kill any leftover Gazebo processes:
 ```bash
