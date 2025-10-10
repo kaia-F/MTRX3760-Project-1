@@ -11,7 +11,7 @@
 | Name            | Responsibilities                      |  
 |----------------|--------------------------------------|  
 | Mike | Camera (refactored), Maze Setup, Maze Testing |  
-| Kaia      | ROS Node Diagram, UML Diagram |  
+| Kaia      | ROS Node Diagram, UML Diagram, ReadMe file |  
 | Shiyao | Right Wall-Following Logic, Code Refactor |  
 
 ## Project Overview 📜
