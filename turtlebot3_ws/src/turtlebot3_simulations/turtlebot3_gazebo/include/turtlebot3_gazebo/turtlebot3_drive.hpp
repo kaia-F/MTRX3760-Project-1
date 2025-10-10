@@ -29,10 +29,6 @@
 #include "wall_follower_state_machine.hpp"
 #include <std_msgs/msg/bool.hpp>
 
-// === Helper function declarations ===
-double normalise_angle(double angle);
-
-
 class Turtlebot3Drive : public rclcpp::Node
 {
 public:

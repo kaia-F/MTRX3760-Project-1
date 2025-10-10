@@ -120,7 +120,7 @@ void Turtlebot3Drive::odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg
 
 void Turtlebot3Drive::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
 {
-  uint16_t scan_angle[3] = {0, 90, 270};
+  uint16_t scan_angle[3] = {0, 80, 280};
 
   // Update front (CENTER = 0)
   if (std::isinf(msg->ranges.at(scan_angle[0]))) {
