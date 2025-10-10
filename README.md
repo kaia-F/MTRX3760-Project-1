@@ -1,7 +1,46 @@
-# MTRX3760 Project 1: Project Overview
-This project simulate a Turtlebot 3 in RViz and Gazebo, including simulated laser and camera in 2 different maze setting layouts (an opened maze and a closed maze). When launched, turtlebot autonomously navigate through one of the mazes, using the right wall following logic, until it reaches the maze exit goal as indicated by a green square box.
+# MTRX3760-Project-1 🤖
+## Group - class aMazing **
 
-# Launch Gazebo and drive node
+### **Group members ✍️:**  
+- **Shiyao Lin**: 540745159
+- **Michael Delano**: 530371788
+- **Kaia Feng**: 530289769
+
+## Member Responsibilities 👷‍♂️
+
+| Name            | Responsibilities                      |  
+|----------------|--------------------------------------|  
+| Mike | Camera (refactored), Maze Setup, Maze Testing |  
+| Kaia      | ROS Node Diagram, UML Diagram |  
+| Shiyao | Right Wall-Following Logic, Code Refactor |  
+
+## Project Overview 📜
+This repository is developed as part of MTRX3760 Project 1 at the University of Sydney.\
+The project simulates a TurtleBot 3 robot navigating through two distinct maze environments—an open maze and a closed maze—within RViz and Gazebo.\
+When launched, the TurtleBot autonomously explores the maze using a right wall following navigation logic. Its goal is to reach the maze exit, visually marked by a green square box, while using simulated LiDAR and camera sensors for perception of surroundings.\
+### How to Download the Repo ⬇️
+Clone the repository in your terminal using:
+   ```bash
+   git clone https://github.com/kaia-F/MTRX3760-Project-1
+   ```
+
+## Requirements
+### Software Requirements
+- **OS:**
+  - Ubuntu 24.04 LTS (Noble), amd64 or arm64.
+- **ROS 2 distribution:**
+  - ROS 2 Jazzy Jalisco (desktop or ros-base profile). Install from deb packages on Ubuntu 24.04. RViz2 is included inside.
+- **Gazebo Ignition:**
+  - Gazebo Sim “Harmonic” (current recommended Gazebo for ROS 2). On Jazzy, Gazebo is provided via ROS vendor packages.
+- **TurtleBot3 Simulation**
+-   turtlebot3_gazebo, turtlebot3_msgs, turtlebot3_description packages for Jazzy.
+
+## Installation & Setup
+### TurtleBot3 PC Setup
+Completed the “PC setup” steps of the turtlebot quick-start guide at https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/#pc-setup, under Jazzy version.  \
+Install TurtleBot3 Simulation Packages by following the guide at https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/#pc-setup. \
+
+### Launch Gazebo
 This interface environment requires installation of ROS2 jazzy and Gazebo ignition.\
 In Terminal 1, Launch Gazebo:  \
 Kill any leftover Gazebo processes
@@ -43,7 +82,9 @@ Run the drive node:
 ```bash
 ros2 run turtlebot3_gazebo turtlebot3_drive
 ```
-# Turtlebot robot setup testing
+
+## Testing and Troubleshooting 🧪
+### Turtlebot robot setup testing
 Confirm packages are built and discoverable
 ```bash
 ros2 pkg prefix turtlebot3_description
@@ -67,7 +108,7 @@ export TURTLEBOT3_MODEL=burger
 ros2 run turtlebot3_teleop teleop_keyboard
 ```
 
-# Maze Testing
+### Maze Testing
 
 
 
