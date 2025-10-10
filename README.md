@@ -16,8 +16,8 @@
 
 ## Project Overview 📜
 This repository is developed as part of MTRX3760 Project 1 at the University of Sydney.\
-The project simulates a TurtleBot 3 robot navigating through two distinct maze environments—an open maze and a closed maze—within RViz and Gazebo.\
-When launched, the TurtleBot autonomously explores the maze using a right wall following navigation logic. Its goal is to reach the maze exit, visually marked by a green square box, while using simulated LiDAR and camera sensors for perception of surroundings.\
+The project simulates a TurtleBot 3 robot navigating through two distinct maze environments, including an open maze and a closed maze, within RViz and Gazebo.\
+When launched, the TurtleBot autonomously explores the maze using a right wall following navigation logic. Its goal is to reach the maze exit, visually marked by a green square box, while using simulated LiDAR and camera sensors for perception of surroundings.
 ### How to Download the Repo ⬇️
 Clone the repository in your terminal using:
    ```bash
@@ -79,7 +79,7 @@ source install/setup.bash
 ```bash
 ros2 launch turtlebot3_gazebo turtlebot3_dqn_stage1_custom.launch.py
 ```
-**Terminal 2: Build and run the modified code  \**
+**Terminal 2: Build and run the modified code  **\
 **Go to workspace**
 ```bash
 cd ~/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws
