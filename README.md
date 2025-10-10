@@ -35,53 +35,62 @@ Clone the repository in your terminal using:
 - **TurtleBot3 Simulation**
 -   turtlebot3_gazebo, turtlebot3_msgs, turtlebot3_description packages for Jazzy.
 
-## Installation & Setup
-### TurtleBot3 PC Setup
-Completed the “PC setup” steps of the turtlebot quick-start guide at https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/#pc-setup, under Jazzy version.  \
-Install TurtleBot3 Simulation Packages by following the guide at https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/#pc-setup. \
+### Installation & Setup ⚙️
 
-### Launch Gazebo
-This interface environment requires installation of ROS2 jazzy and Gazebo ignition.\
-In Terminal 1, Launch Gazebo:  \
-Kill any leftover Gazebo processes
+### 1. TurtleBot3 PC Setup  
+Follow the **PC Setup** steps from the official TurtleBot3 Quick Start Guide (Jazzy version):  
+🔗 [TurtleBot3 Quick Start – PC Setup](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/#pc-setup)
+
+This includes:
+- Installing **ROS 2 Jazzy Jalisco** on Ubuntu 24.04.
+- Setting up TurtleBot3 packages (`turtlebot3`, `turtlebot3_msgs`, `turtlebot3_gazebo`).
+- Configuring the TurtleBot3 model environment variable (`burger`, `waffle`, or `waffle_pi`).
+
+---
+
+### 2. Launching Gazebo (Ignition / Gazebo Sim)
+This simulation requires **ROS 2 Jazzy** and **Gazebo (Ignition/Harmonic)**.
+
+#### **Terminal 1 — Start the Gazebo Simulation**
+
+**Kill any leftover Gazebo processes:**
 ```bash
 pkill -9 -f gazebo
 pkill -9 -f gzserver
 pkill -9 -f gzclient
 ```
-Set TurtleBot3 model:
+**Set TurtleBot3 model:**
 ```bash
 export TURTLEBOT3_MODEL=burger
 ```
-Go to workspace:
+**Go to workspace:**
 ```bash
 cd ~/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws
 ```
-Build only turtlebot3_gazebo with override (in case of underlay conflict):
+**Build only turtlebot3_gazebo with override (in case of underlay conflict):**
 ```bash
 colcon build --packages-select turtlebot3_gazebo --allow-overriding turtlebot3_gazebo
 ```
-Source workspace:
+**Source workspace:**
 ```bash
 source install/setup.bash
 ```
-Launch Gazebo with your custom launch file:
+**Launch Gazebo with your custom launch file:**
 ```bash
 ros2 launch turtlebot3_gazebo turtlebot3_dqn_stage1_custom.launch.py
 ```
-Terminal 2: Build and run the modified code  \
-Go to workspace
+**Terminal 2: Build and run the modified code  \**
+**Go to workspace**
 ```bash
 cd ~/Documents/GitHub/MTRX3760-Project-1/turtlebot3_ws
 ```
-Make sure workspace is sourced:
-```bash
-source install/setup.bash
-```
 Run the drive node:
 ```bash
+source install/setup.bash
 ros2 run turtlebot3_gazebo turtlebot3_drive
 ```
+
+
 
 ## Testing and Troubleshooting 🧪
 ### Turtlebot robot setup testing
