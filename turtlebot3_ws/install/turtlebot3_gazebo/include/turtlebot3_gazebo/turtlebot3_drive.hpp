@@ -27,17 +27,6 @@
 #include "sensor_data.hpp"
 
 
-#define DEG2RAD (M_PI / 180.0)
-#define RAD2DEG (180.0 / M_PI)
-
-#define CENTER 0
-#define LEFT   1
-#define RIGHT  2
-
-#define LINEAR_VELOCITY  0.3
-#define ANGULAR_VELOCITY 0.9
-
-
 // === Helper function declarations ===
 double normalise_angle(double angle);
 

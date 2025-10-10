@@ -15,6 +15,7 @@
 // Authors: Taehun Lim (Darby), Ryan Shim
 
 #include "turtlebot3_gazebo/turtlebot3_drive.hpp"
+#include "turtlebot3_gazebo/wall_follower_config.hpp"
 
 #include <memory>
 
@@ -170,27 +171,15 @@ void Turtlebot3Drive::update_callback()
     static uint8_t state = TB3_DRIVE_FORWARD;
     static uint8_t prev_state = GET_TB3_DIRECTION;
 
-    
-    // Tuning parameters
-    const double TARGET_WALL_DIST = 0.36;  // Ideal distance from right wall
-    const double WALL_DETECT_RANGE = 0.7;     // Max range to detect wall
-    const double FRONT_OBSTACLE_DIST = 0.5;   // Min clear distance ahead
-    const double DEG90 = M_PI / 2.0;
-    const double ANGLE_TOLERANCE = 0.03;       // Tolerance for turn completion (radians)
-    const double Kp = 0.5; 
-    const double MAX_ANGULAR = 0.35;           // REDUCED max turn rate
-    const double DEADBAND = 0.05;             // Ignore tiny errors (±3cm)
-    
-
     // LIDAR readings
     double front = sensor_data_.get_front();
     double left = sensor_data_.get_left();
     double right = sensor_data_.get_right();
     
     // Wall detection flags
-    bool front_clear = (front > FRONT_OBSTACLE_DIST);
-    bool wall_on_right = (right < WALL_DETECT_RANGE);
-    bool wall_on_left = (left < WALL_DETECT_RANGE);
+    bool front_clear = (front > WallFollowerConfig::FRONT_OBSTACLE_DISTANCE);
+    bool wall_on_right = (right < WallFollowerConfig::WALL_DETECTION_RANGE);
+    bool wall_on_left = (left < WallFollowerConfig::WALL_DETECTION_RANGE);
     
     static double forward_start_x = 0.0;
     static double forward_start_y = 0.0;
@@ -256,32 +245,32 @@ void Turtlebot3Drive::update_callback()
 
         case TB3_DRIVE_FORWARD:
         {
-            // SMOOTH wall following with proportional control + deadband
-            double linear = LINEAR_VELOCITY;
+            // SMOOTH wall following with proportional control + WallFollowerConfig::CONTROL_DEADBAND
+            double linear = WallFollowerConfig::LINEAR_VELOCITY;
             double angular = 0.0;
             
             if (wall_on_right)
             {
                 // Calculate error: positive = too far, negative = too close
-                double error = right - TARGET_WALL_DIST;
+                double error = right - WallFollowerConfig::TARGET_WALL_DISTANCE;
                 
-                // DEADBAND: Ignore small errors to prevent oscillation
-                if (fabs(error) > DEADBAND)
+                // WallFollowerConfig::CONTROL_DEADBAND: Ignore small errors to prevent oscillation
+                if (fabs(error) > WallFollowerConfig::CONTROL_DEADBAND)
                 {
                     // Proportional control: steer toward wall if too far, away if too close
-                    angular = -Kp * error;  // Negative because right wall
+                    angular = -WallFollowerConfig::PROPORTIONAL_GAIN * error;  // Negative because right wall
                     
                     // Limit angular velocity to prevent oscillation
-                    if (angular > MAX_ANGULAR) angular = MAX_ANGULAR;
-                    if (angular < -MAX_ANGULAR) angular = -MAX_ANGULAR;
+                    if (angular > WallFollowerConfig::MAX_ANGULAR_VELOCITY) angular = WallFollowerConfig::MAX_ANGULAR_VELOCITY;
+                    if (angular < -WallFollowerConfig::MAX_ANGULAR_VELOCITY) angular = -WallFollowerConfig::MAX_ANGULAR_VELOCITY;
                     
                     // Reduce linear speed during corrections
-                    if (fabs(angular) > 0.2)
+                    if (fabs(angular) > WallFollowerConfig::CORRECTION_THRESHOLD)
                     {
-                        linear = LINEAR_VELOCITY * 0.75;  // Slow down 25% during corrections
+                        linear = WallFollowerConfig::LINEAR_VELOCITY * WallFollowerConfig::CORRECTION_SPEED_FACTOR;  
                     }
                 }
-                // else: within deadband, go straight (angular stays 0.0)
+                // else: within WallFollowerConfig::CONTROL_DEADBAND, go straight (angular stays 0.0)
             }
             
             update_cmd_vel(linear, angular);
@@ -301,7 +290,7 @@ void Turtlebot3Drive::update_callback()
             
             //RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 200, "[RIGHT TURN] Progress: %.1f°", fabs(angle_diff) * RAD2DEG);
             
-            if (fabs(angle_diff) >= (DEG90 - ANGLE_TOLERANCE))
+            if (fabs(angle_diff) >= (WallFollowerConfig::TURN_ANGLE_90 - WallFollowerConfig::ANGLE_TOLERANCE))
             {
                 //RCLCPP_INFO(this->get_logger(), "[TURN COMPLETE] Right turn finished - committing forward");
                 update_cmd_vel(0.0, 0.0);
@@ -316,7 +305,7 @@ void Turtlebot3Drive::update_callback()
             }
             else
             {
-                update_cmd_vel(0.0, -ANGULAR_VELOCITY);
+                update_cmd_vel(0.0, -WallFollowerConfig::ANGULAR_VELOCITY);
             }
             break;
         }
@@ -328,7 +317,7 @@ void Turtlebot3Drive::update_callback()
             
             //RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 200, "[LEFT TURN] Progress: %.1f°", fabs(angle_diff) * RAD2DEG);
             
-            if (fabs(angle_diff) >= (DEG90 - ANGLE_TOLERANCE))
+            if (fabs(angle_diff) >= (WallFollowerConfig::TURN_ANGLE_90 - WallFollowerConfig::ANGLE_TOLERANCE))
             {
                 RCLCPP_INFO(this->get_logger(), "[TURN COMPLETE] Left turn finished - returning to decision");
                 update_cmd_vel(0.0, 0.0);
@@ -336,7 +325,7 @@ void Turtlebot3Drive::update_callback()
             }
             else
             {
-                update_cmd_vel(0.0, ANGULAR_VELOCITY);
+                update_cmd_vel(0.0, WallFollowerConfig::ANGULAR_VELOCITY);
             }
             break;
         }
@@ -345,26 +334,25 @@ void Turtlebot3Drive::update_callback()
         {
             double angle_diff = normalise_angle(robot_pose_ - prev_robot_pose_);
 
-            if (fabs(angle_diff) >= (DEG90*2 - ANGLE_TOLERANCE))
+            if (fabs(angle_diff) >= (WallFollowerConfig::TURN_ANGLE_180 - WallFollowerConfig::ANGLE_TOLERANCE))
             {
                 update_cmd_vel(0.0, 0.0);
                 state = TB3_DRIVE_FORWARD;
             }
             else
             {
-                update_cmd_vel(0.0, ANGULAR_VELOCITY);
+                update_cmd_vel(0.0, WallFollowerConfig::ANGULAR_VELOCITY);
             }
             break;
         }
 
         case TB3_PRE_RIGHT_COMMIT:
         {
-            const double COMMIT_FORWARD_DIST = 0.36; // meters
             const double dx = current_x_ - forward_start_x;
             const double dy = current_y_ - forward_start_y;
             const double distance = sqrt(dx*dx + dy*dy);
 
-            if (distance >= COMMIT_FORWARD_DIST)
+            if (distance >= WallFollowerConfig::PRE_TURN_COMMIT_DISTANCE)
             {
                 update_cmd_vel(0.0, 0.0);
                 prev_robot_pose_ = robot_pose_;
@@ -372,25 +360,24 @@ void Turtlebot3Drive::update_callback()
             }
             else
             {
-                update_cmd_vel(LINEAR_VELOCITY, 0.0);
+                update_cmd_vel(WallFollowerConfig::LINEAR_VELOCITY, 0.0);
             }
             break;
         }
         case TB3_POST_RIGHT_COMMIT:
         {
-            const double COMMIT_FORWARD_DIST = 0.45; // meters
             const double dx = current_x_ - forward_start_x;
             const double dy = current_y_ - forward_start_y;
             const double distance = sqrt(dx*dx + dy*dy);
 
-            if (distance >= COMMIT_FORWARD_DIST)
+            if (distance >= WallFollowerConfig::POST_TURN_COMMIT_DISTANCE)
             {
                 update_cmd_vel(0.0, 0.0);
                 state = GET_TB3_DIRECTION;
             }
             else
             {
-                update_cmd_vel(LINEAR_VELOCITY, 0.0);
+                update_cmd_vel(WallFollowerConfig::LINEAR_VELOCITY, 0.0);
             }
             break;
         }
