@@ -17,18 +17,11 @@
 #include "turtlebot3_gazebo/turtlebot3_drive.hpp"
 #include "turtlebot3_gazebo/wall_follower_config.hpp"
 #include "turtlebot3_gazebo/wall_follower_state_machine.hpp"
+#include "turtlebot3_gazebo/utilities.hpp"
 
 #include <memory>
 
 using namespace std::chrono_literals;
-
-
-double normalise_angle(double angle)
-{
-  while (angle > M_PI) angle -= 2.0 * M_PI;
-  while (angle < -M_PI) angle += 2.0 * M_PI;
-  return angle;
-}
 
 
 // Constructor
