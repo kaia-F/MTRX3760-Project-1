@@ -25,7 +25,7 @@
 #include <tf2/LinearMath/Matrix3x3.hpp>
 #include <tf2/LinearMath/Quaternion.hpp>
 #include "sensor_data.hpp"
-
+#include "robot_state.hpp"
 
 // === Helper function declarations ===
 double normalise_angle(double angle);
@@ -46,11 +46,7 @@ private:
   rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr odom_sub_;
 
   SensorData sensor_data_;
-  // Variables
-  double robot_pose_;
-  double prev_robot_pose_;
-  double current_x_;
-  double current_y_;
+  RobotState robot_state_;
   
   // ROS timer
   rclcpp::TimerBase::SharedPtr update_timer_;

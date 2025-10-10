@@ -37,18 +37,6 @@ Turtlebot3Drive::Turtlebot3Drive()
 // Calls parent constructor Node with name "turtlebot3_drive_node".
 // Registers this ROS 2 node.
   /************************************************************
-  ** Initialise variables
-  ************************************************************/
-
-	// robot_pose_ = robot’s yaw (heading).
-  robot_pose_ = 0.0;
-  // prev_robot_pose_ = yaw remembered before a turn (so robot knows when to stop turning).
-  prev_robot_pose_ = 0.0;
-
-  current_x_ = 0.0;
-  current_y_ = 0.0;
-
-  /************************************************************
   ** Initialise ROS publishers and subscribers
   ************************************************************/
   // QoS (Quality of Service)
@@ -110,9 +98,12 @@ Reads quaternion orientation from odometry.
 */
 void Turtlebot3Drive::odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg)
 {
-  current_x_ = msg->pose.pose.position.x;
-  current_y_ = msg->pose.pose.position.y;
+  // Update position
+  robot_state_.set_position(
+    msg->pose.pose.position.x,
+    msg->pose.pose.position.y);
 
+  // Convert quaternion to yaw
   tf2::Quaternion q(
     msg->pose.pose.orientation.x,
     msg->pose.pose.orientation.y,
@@ -122,7 +113,7 @@ void Turtlebot3Drive::odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg
   double roll, pitch, yaw;
   m.getRPY(roll, pitch, yaw);
 
-  robot_pose_ = yaw;
+  robot_state_.set_yaw(yaw);
 }
 
 
@@ -215,23 +206,23 @@ void Turtlebot3Drive::update_callback()
             {
                 // Special case: wall on left, no wall on right at startup
                 RCLCPP_INFO(this->get_logger(), "Wall on left only — performing 180° right turn");
-                prev_robot_pose_ = robot_pose_;
+                robot_state_.save_yaw();
                 state = TB3_RIGHT_TURN_180;
             }
             else if (!wall_on_right)
             {
                 // Lost the wall, turn right to find it
                 //RCLCPP_INFO(this->get_logger(), "[DECISION] No right wall detected - turning RIGHT");
-                prev_robot_pose_ = robot_pose_;
-                forward_start_x = current_x_;
-                forward_start_y = current_y_;
+                robot_state_.save_yaw();
+                forward_start_x = robot_state_.get_x();
+                forward_start_y = robot_state_.get_y();
                 state = TB3_PRE_RIGHT_COMMIT;
             }
             else if (!front_clear)
             {
                 // Obstacle ahead, turn left
                 //RCLCPP_INFO(this->get_logger(), "[DECISION] Front blocked (%.2fm) - turning LEFT", front);
-                prev_robot_pose_ = robot_pose_;
+                robot_state_.save_yaw();
                 state = TB3_LEFT_TURN;
             }
             else
@@ -286,7 +277,7 @@ void Turtlebot3Drive::update_callback()
         case TB3_RIGHT_TURN:
         {
             // Turn 90° clockwise (negative angular velocity)
-            double angle_diff = normalise_angle(robot_pose_ - prev_robot_pose_);
+            double angle_diff = robot_state_.get_angle_turned(normalise_angle);
             
             //RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 200, "[RIGHT TURN] Progress: %.1f°", fabs(angle_diff) * RAD2DEG);
             
@@ -296,8 +287,8 @@ void Turtlebot3Drive::update_callback()
                 update_cmd_vel(0.0, 0.0);
 
                 // Record where we finished the turn
-                forward_start_x = current_x_;
-                forward_start_y = current_y_;
+                forward_start_x = robot_state_.get_x();
+                forward_start_y = robot_state_.get_y(); 
 
                 // Enter commit forward state
                 state = TB3_POST_RIGHT_COMMIT;
@@ -313,7 +304,7 @@ void Turtlebot3Drive::update_callback()
         case TB3_LEFT_TURN:
         {
             // Turn 90° counter-clockwise (positive angular velocity)
-            double angle_diff = normalise_angle(robot_pose_ - prev_robot_pose_);
+            double angle_diff = robot_state_.get_angle_turned(normalise_angle);
             
             //RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 200, "[LEFT TURN] Progress: %.1f°", fabs(angle_diff) * RAD2DEG);
             
@@ -332,7 +323,7 @@ void Turtlebot3Drive::update_callback()
 
         case TB3_RIGHT_TURN_180:
         {
-            double angle_diff = normalise_angle(robot_pose_ - prev_robot_pose_);
+            double angle_diff = robot_state_.get_angle_turned(normalise_angle);
 
             if (fabs(angle_diff) >= (WallFollowerConfig::TURN_ANGLE_180 - WallFollowerConfig::ANGLE_TOLERANCE))
             {
@@ -348,14 +339,12 @@ void Turtlebot3Drive::update_callback()
 
         case TB3_PRE_RIGHT_COMMIT:
         {
-            const double dx = current_x_ - forward_start_x;
-            const double dy = current_y_ - forward_start_y;
-            const double distance = sqrt(dx*dx + dy*dy);
+            const double distance = robot_state_.distance_to(forward_start_x, forward_start_y);
 
             if (distance >= WallFollowerConfig::PRE_TURN_COMMIT_DISTANCE)
             {
                 update_cmd_vel(0.0, 0.0);
-                prev_robot_pose_ = robot_pose_;
+                robot_state_.save_yaw();
                 state = TB3_RIGHT_TURN;
             }
             else
@@ -366,9 +355,7 @@ void Turtlebot3Drive::update_callback()
         }
         case TB3_POST_RIGHT_COMMIT:
         {
-            const double dx = current_x_ - forward_start_x;
-            const double dy = current_y_ - forward_start_y;
-            const double distance = sqrt(dx*dx + dy*dy);
+            const double distance = robot_state_.distance_to(forward_start_x, forward_start_y);
 
             if (distance >= WallFollowerConfig::POST_TURN_COMMIT_DISTANCE)
             {
