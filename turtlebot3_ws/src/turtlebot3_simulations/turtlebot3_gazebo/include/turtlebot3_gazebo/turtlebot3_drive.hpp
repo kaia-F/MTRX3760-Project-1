@@ -24,7 +24,7 @@
 #include <sensor_msgs/msg/laser_scan.hpp>
 #include <tf2/LinearMath/Matrix3x3.hpp>
 #include <tf2/LinearMath/Quaternion.hpp>
-
+#include "sensor_data.hpp"
 
 
 #define DEG2RAD (M_PI / 180.0)
@@ -56,10 +56,10 @@ private:
   rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr scan_sub_;
   rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr odom_sub_;
 
+  SensorData sensor_data_;
   // Variables
   double robot_pose_;
   double prev_robot_pose_;
-  double scan_data_[3];
   double current_x_;
   double current_y_;
   

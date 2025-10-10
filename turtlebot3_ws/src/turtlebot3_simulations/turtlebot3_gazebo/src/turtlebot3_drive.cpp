@@ -38,13 +38,7 @@ Turtlebot3Drive::Turtlebot3Drive()
   /************************************************************
   ** Initialise variables
   ************************************************************/
-  // scan_data_ = LIDAR readings at three angles (front, left, right).
-  scan_data_[0] = 0.0;
-  scan_data_[1] = 0.0;
-  scan_data_[2] = 0.0;
 
-  
-  
 	// robot_pose_ = robot’s yaw (heading).
   robot_pose_ = 0.0;
   // prev_robot_pose_ = yaw remembered before a turn (so robot knows when to stop turning).
@@ -135,15 +129,27 @@ void Turtlebot3Drive::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr
 {
   uint16_t scan_angle[3] = {0, 90, 270};
 
-  for (int num = 0; num < 3; num++) {
-    if (std::isinf(msg->ranges.at(scan_angle[num]))) {
-      scan_data_[num] = msg->range_max;
-    } else {
-      scan_data_[num] = msg->ranges.at(scan_angle[num]);
-    }
+  // Update front (CENTER = 0)
+  if (std::isinf(msg->ranges.at(scan_angle[0]))) {
+    sensor_data_.set_front(msg->range_max); 
+  } else {
+    sensor_data_.set_front(msg->ranges.at(scan_angle[0]));  
+  }
+  
+  // Update left (LEFT = 1)
+  if (std::isinf(msg->ranges.at(scan_angle[1]))) {
+    sensor_data_.set_left(msg->range_max);  
+  } else {
+    sensor_data_.set_left(msg->ranges.at(scan_angle[1]));  
+  }
+  
+  // Update right (RIGHT = 2)
+  if (std::isinf(msg->ranges.at(scan_angle[2]))) {
+    sensor_data_.set_right(msg->range_max);  
+  } else {
+    sensor_data_.set_right(msg->ranges.at(scan_angle[2]));  
   }
 }
-
 
 void Turtlebot3Drive::update_cmd_vel(double linear, double angular)
 {
@@ -177,9 +183,9 @@ void Turtlebot3Drive::update_callback()
     
 
     // LIDAR readings
-    double front = scan_data_[CENTER];
-    double left = scan_data_[LEFT];
-    double right = scan_data_[RIGHT];
+    double front = sensor_data_.get_front();
+    double left = sensor_data_.get_left();
+    double right = sensor_data_.get_right();
     
     // Wall detection flags
     bool front_clear = (front > FRONT_OBSTACLE_DIST);
@@ -189,7 +195,7 @@ void Turtlebot3Drive::update_callback()
     static double forward_start_x = 0.0;
     static double forward_start_y = 0.0;
 
-    if (scan_data_[CENTER] == 0.0 && scan_data_[LEFT] == 0.0 && scan_data_[RIGHT] == 0.0)
+    if (!sensor_data_.is_ready())    
     {
         // LIDAR not ready — just stop and wait
         update_cmd_vel(0.0, 0.0);
