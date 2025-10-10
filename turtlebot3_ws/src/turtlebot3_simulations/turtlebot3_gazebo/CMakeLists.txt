@@ -50,7 +50,9 @@ include_directories(
 
 set(EXEC_NAME "turtlebot3_drive")
 
-add_executable(${EXEC_NAME} src/turtlebot3_drive.cpp)
+add_executable(${EXEC_NAME} 
+  src/turtlebot3_drive.cpp
+  src/wall_follower_state_machine.cpp)
 target_link_libraries(${EXEC_NAME}
   ${geometry_msgs_TARGETS}
   ${nav_msgs_TARGETS}

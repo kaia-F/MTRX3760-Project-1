@@ -16,6 +16,7 @@
 
 #include "turtlebot3_gazebo/turtlebot3_drive.hpp"
 #include "turtlebot3_gazebo/wall_follower_config.hpp"
+#include "turtlebot3_gazebo/wall_follower_state_machine.hpp"
 
 #include <memory>
 
@@ -156,224 +157,53 @@ void Turtlebot3Drive::update_cmd_vel(double linear, double angular)
 /********************************************************************************
 ** Update functions
 ********************************************************************************/
-
 void Turtlebot3Drive::update_callback()
 {
-    static uint8_t state = TB3_DRIVE_FORWARD;
-    static uint8_t prev_state = GET_TB3_DIRECTION;
+  // Check if sensors are ready
+  if (!sensor_data_.is_ready())
+  {
+    update_cmd_vel(0.0, 0.0);
+    return;
+  }
 
-    // LIDAR readings
-    double front = sensor_data_.get_front();
-    double left = sensor_data_.get_left();
-    double right = sensor_data_.get_right();
-    
-    // Wall detection flags
-    bool front_clear = (front > WallFollowerConfig::FRONT_OBSTACLE_DISTANCE);
-    bool wall_on_right = (right < WallFollowerConfig::WALL_DETECTION_RANGE);
-    bool wall_on_left = (left < WallFollowerConfig::WALL_DETECTION_RANGE);
-    
-    static double forward_start_x = 0.0;
-    static double forward_start_y = 0.0;
-
-    if (!sensor_data_.is_ready())    
+  // Save previous state for logging
+  static WallFollowerStateMachine::State prev_logged_state = WallFollowerStateMachine::GET_TB3_DIRECTION;
+  WallFollowerStateMachine::State current_state_before = state_machine_.get_current_state();
+  
+  // Save yaw before state machine runs (needed for turn tracking)
+  // Check which states need yaw saved
+  if (current_state_before == WallFollowerStateMachine::GET_TB3_DIRECTION)
+  {
+    robot_state_.save_yaw();
+  }
+  else if (current_state_before == WallFollowerStateMachine::TB3_PRE_RIGHT_COMMIT)
+  {
+    double dist = robot_state_.distance_to(robot_state_.get_x(), robot_state_.get_y());
+    if (dist >= WallFollowerConfig::PRE_TURN_COMMIT_DISTANCE - 0.01)
     {
-        // LIDAR not ready — just stop and wait
-        update_cmd_vel(0.0, 0.0);
-        return;
+      robot_state_.save_yaw();
     }
-
-    // Log only when state changes
-    if (state != prev_state)
-    {
-        const char* state_names[] = {"DECISION", "FORWARD", "RIGHT_TURN", "LEFT_TURN", "COMMIT_FWD"};
-        RCLCPP_INFO(this->get_logger(), "\n========================================");
-        RCLCPP_INFO(this->get_logger(), "[STATE CHANGE] %s -> %s", 
-            state_names[prev_state], state_names[state]);
-        RCLCPP_INFO(this->get_logger(), "[SENSORS] Front:%.2f Left:%.2f Right:%.2f", front, left, right);
-        prev_state = state;
-    }
-    
-    switch (state)
-    {
-        case GET_TB3_DIRECTION:
-        {
-            // Right-wall following priority:
-            // 1. If no wall on right -> turn right
-            // 2. If front blocked -> turn left
-            // 3. Otherwise -> follow wall forward
-            
-            if (wall_on_left && !wall_on_right)
-            {
-                // Special case: wall on left, no wall on right at startup
-                RCLCPP_INFO(this->get_logger(), "Wall on left only — performing 180° right turn");
-                robot_state_.save_yaw();
-                state = TB3_RIGHT_TURN_180;
-            }
-            else if (!wall_on_right)
-            {
-                // Lost the wall, turn right to find it
-                //RCLCPP_INFO(this->get_logger(), "[DECISION] No right wall detected - turning RIGHT");
-                robot_state_.save_yaw();
-                forward_start_x = robot_state_.get_x();
-                forward_start_y = robot_state_.get_y();
-                state = TB3_PRE_RIGHT_COMMIT;
-            }
-            else if (!front_clear)
-            {
-                // Obstacle ahead, turn left
-                //RCLCPP_INFO(this->get_logger(), "[DECISION] Front blocked (%.2fm) - turning LEFT", front);
-                robot_state_.save_yaw();
-                state = TB3_LEFT_TURN;
-            }
-            else
-            {
-                // Follow the wall
-                //RCLCPP_INFO(this->get_logger(), "[DECISION] Wall on right, front clear - moving FORWARD");
-                state = TB3_DRIVE_FORWARD;
-            }
-            break;
-        }
-
-        case TB3_DRIVE_FORWARD:
-        {
-            // SMOOTH wall following with proportional control + WallFollowerConfig::CONTROL_DEADBAND
-            double linear = WallFollowerConfig::LINEAR_VELOCITY;
-            double angular = 0.0;
-            
-            if (wall_on_right)
-            {
-                // Calculate error: positive = too far, negative = too close
-                double error = right - WallFollowerConfig::TARGET_WALL_DISTANCE;
-                
-                // WallFollowerConfig::CONTROL_DEADBAND: Ignore small errors to prevent oscillation
-                if (fabs(error) > WallFollowerConfig::CONTROL_DEADBAND)
-                {
-                    // Proportional control: steer toward wall if too far, away if too close
-                    angular = -WallFollowerConfig::PROPORTIONAL_GAIN * error;  // Negative because right wall
-                    
-                    // Limit angular velocity to prevent oscillation
-                    if (angular > WallFollowerConfig::MAX_ANGULAR_VELOCITY) angular = WallFollowerConfig::MAX_ANGULAR_VELOCITY;
-                    if (angular < -WallFollowerConfig::MAX_ANGULAR_VELOCITY) angular = -WallFollowerConfig::MAX_ANGULAR_VELOCITY;
-                    
-                    // Reduce linear speed during corrections
-                    if (fabs(angular) > WallFollowerConfig::CORRECTION_THRESHOLD)
-                    {
-                        linear = WallFollowerConfig::LINEAR_VELOCITY * WallFollowerConfig::CORRECTION_SPEED_FACTOR;  
-                    }
-                }
-                // else: within WallFollowerConfig::CONTROL_DEADBAND, go straight (angular stays 0.0)
-            }
-            
-            update_cmd_vel(linear, angular);
-            
-            // Check if conditions changed
-            if (!front_clear || !wall_on_right)
-            {
-                state = GET_TB3_DIRECTION;
-            }
-            break;
-        }
-
-        case TB3_RIGHT_TURN:
-        {
-            // Turn 90° clockwise (negative angular velocity)
-            double angle_diff = robot_state_.get_angle_turned(normalise_angle);
-            
-            //RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 200, "[RIGHT TURN] Progress: %.1f°", fabs(angle_diff) * RAD2DEG);
-            
-            if (fabs(angle_diff) >= (WallFollowerConfig::TURN_ANGLE_90 - WallFollowerConfig::ANGLE_TOLERANCE))
-            {
-                //RCLCPP_INFO(this->get_logger(), "[TURN COMPLETE] Right turn finished - committing forward");
-                update_cmd_vel(0.0, 0.0);
-
-                // Record where we finished the turn
-                forward_start_x = robot_state_.get_x();
-                forward_start_y = robot_state_.get_y(); 
-
-                // Enter commit forward state
-                state = TB3_POST_RIGHT_COMMIT;
-
-            }
-            else
-            {
-                update_cmd_vel(0.0, -WallFollowerConfig::ANGULAR_VELOCITY);
-            }
-            break;
-        }
-
-        case TB3_LEFT_TURN:
-        {
-            // Turn 90° counter-clockwise (positive angular velocity)
-            double angle_diff = robot_state_.get_angle_turned(normalise_angle);
-            
-            //RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 200, "[LEFT TURN] Progress: %.1f°", fabs(angle_diff) * RAD2DEG);
-            
-            if (fabs(angle_diff) >= (WallFollowerConfig::TURN_ANGLE_90 - WallFollowerConfig::ANGLE_TOLERANCE))
-            {
-                RCLCPP_INFO(this->get_logger(), "[TURN COMPLETE] Left turn finished - returning to decision");
-                update_cmd_vel(0.0, 0.0);
-                state = GET_TB3_DIRECTION;
-            }
-            else
-            {
-                update_cmd_vel(0.0, WallFollowerConfig::ANGULAR_VELOCITY);
-            }
-            break;
-        }
-
-        case TB3_RIGHT_TURN_180:
-        {
-            double angle_diff = robot_state_.get_angle_turned(normalise_angle);
-
-            if (fabs(angle_diff) >= (WallFollowerConfig::TURN_ANGLE_180 - WallFollowerConfig::ANGLE_TOLERANCE))
-            {
-                update_cmd_vel(0.0, 0.0);
-                state = TB3_DRIVE_FORWARD;
-            }
-            else
-            {
-                update_cmd_vel(0.0, WallFollowerConfig::ANGULAR_VELOCITY);
-            }
-            break;
-        }
-
-        case TB3_PRE_RIGHT_COMMIT:
-        {
-            const double distance = robot_state_.distance_to(forward_start_x, forward_start_y);
-
-            if (distance >= WallFollowerConfig::PRE_TURN_COMMIT_DISTANCE)
-            {
-                update_cmd_vel(0.0, 0.0);
-                robot_state_.save_yaw();
-                state = TB3_RIGHT_TURN;
-            }
-            else
-            {
-                update_cmd_vel(WallFollowerConfig::LINEAR_VELOCITY, 0.0);
-            }
-            break;
-        }
-        case TB3_POST_RIGHT_COMMIT:
-        {
-            const double distance = robot_state_.distance_to(forward_start_x, forward_start_y);
-
-            if (distance >= WallFollowerConfig::POST_TURN_COMMIT_DISTANCE)
-            {
-                update_cmd_vel(0.0, 0.0);
-                state = GET_TB3_DIRECTION;
-            }
-            else
-            {
-                update_cmd_vel(WallFollowerConfig::LINEAR_VELOCITY, 0.0);
-            }
-            break;
-        }
-        default:
-            RCLCPP_WARN(this->get_logger(), "[ERROR] Unknown state %d - resetting", state);
-            update_cmd_vel(0.0, 0.0);
-            state = GET_TB3_DIRECTION;
-            break;
-    }
+  }
+  
+  // Run the state machine
+  VelocityCommand cmd = state_machine_.update(sensor_data_, robot_state_, normalise_angle);
+  
+  // Log state changes
+  WallFollowerStateMachine::State current_state_after = state_machine_.get_current_state();
+  if (current_state_after != prev_logged_state)
+  {
+    const char* state_names[] = {"DECISION", "FORWARD", "RIGHT_TURN", "LEFT_TURN", 
+                                  "RIGHT_TURN_180", "PRE_RIGHT_COMMIT", "POST_RIGHT_COMMIT"};
+    RCLCPP_INFO(this->get_logger(), "\n========================================");
+    RCLCPP_INFO(this->get_logger(), "[STATE CHANGE] %s -> %s", 
+      state_names[prev_logged_state], state_names[current_state_after]);
+    RCLCPP_INFO(this->get_logger(), "[SENSORS] Front:%.2f Left:%.2f Right:%.2f", 
+      sensor_data_.get_front(), sensor_data_.get_left(), sensor_data_.get_right());
+    prev_logged_state = current_state_after;
+  }
+  
+  // Send command to robot
+  update_cmd_vel(cmd.linear, cmd.angular);
 }
 
 /*******************************************************************************

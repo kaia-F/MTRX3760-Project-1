@@ -26,6 +26,7 @@
 #include <tf2/LinearMath/Quaternion.hpp>
 #include "sensor_data.hpp"
 #include "robot_state.hpp"
+#include "wall_follower_state_machine.hpp"
 
 // === Helper function declarations ===
 double normalise_angle(double angle);
@@ -47,6 +48,7 @@ private:
 
   SensorData sensor_data_;
   RobotState robot_state_;
+  WallFollowerStateMachine state_machine_;
   
   // ROS timer
   rclcpp::TimerBase::SharedPtr update_timer_;
