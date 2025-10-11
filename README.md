@@ -44,6 +44,7 @@ Clone the repository in your terminal using:
 - **openmaze.launch.py** — Spawns TurtleBot3 in the open maze world and starts the core nodes (Gazebo sim, robot_state_publisher, and drive node) for the wall-following logic in a designed open maze layout.
 - **closedmaze.launch.py** — Spawns TurtleBot3 in the closed maze world and brings up the same core stack in previous open maze.
 - **turtlebot3_dqn_stage1_custom.launch.py** — Fast-start launch for testing robot logic; loads the robot inside a square map and run the drive node to test parameters.
+- **full_launch.py** - Launches Gazebo with a selectable maze (sim_map) with TurtleBot, SLAM and RViz, and starts camera_node, pose_trajectory_node, and turtlebot3_drive.
 
 ## File Setup
 ### Folder layout
@@ -68,6 +69,7 @@ turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/
 │  ├─ openmaze.launch.py
 │  ├─ closedmaze.launch.py
 │  └─ turtlebot3_dqn_stage1_custom.launch.py
+│  └─ full_launch.py
 ├─ CMakeLists.txt
 └─ package.xml
 ```
