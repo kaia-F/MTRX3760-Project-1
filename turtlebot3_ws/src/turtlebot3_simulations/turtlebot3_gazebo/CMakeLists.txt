@@ -23,6 +23,7 @@ find_package(ament_cmake REQUIRED)
 find_package(ros_gz_sim REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
+find_package(visualization_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(tf2 REQUIRED)
@@ -32,6 +33,9 @@ find_package(gz_sim_vendor REQUIRED)
 find_package(gz-sim REQUIRED)
 find_package(gz_plugin_vendor REQUIRED)
 find_package(gz-plugin REQUIRED)
+find_package(image_transport REQUIRED)
+find_package(cv_bridge REQUIRED)
+find_package(OpenCV REQUIRED)
 
 ################################################################################
 # Build
@@ -61,6 +65,26 @@ target_link_libraries(${EXEC_NAME}
   tf2::tf2
 )
 
+add_executable(camera_node src/turtlebot3_camera.cpp)
+ament_target_dependencies(camera_node
+  rclcpp
+  sensor_msgs
+  cv_bridge
+  image_transport
+)
+
+add_executable(pose_trajectory_node src/turtlebot3_pose_trajectory.cpp)
+ament_target_dependencies(pose_trajectory_node
+  rclcpp
+  nav_msgs
+  visualization_msgs
+  geometry_msgs
+)
+
+target_link_libraries(camera_node
+  ${OpenCV_LIBS}
+)
+
 set(OBSTACLE_LIBS
   obstacles
   obstacle1
@@ -81,6 +105,8 @@ endforeach()
 ################################################################################
 install(TARGETS
   ${EXEC_NAME}
+  pose_trajectory_node
+  camera_node
   obstacles
   obstacle1
   obstacle2
@@ -100,7 +126,8 @@ install(DIRECTORY include/
 ################################################################################
 ament_export_include_directories(include)
 ament_export_dependencies(
-  gazebo_ros_pkgs
+  #gazebo_ros_pkgs
+  ros_gz_sim
   geometry_msgs
   nav_msgs
   rclcpp

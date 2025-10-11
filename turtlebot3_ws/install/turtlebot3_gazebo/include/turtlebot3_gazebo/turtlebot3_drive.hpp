@@ -27,10 +27,7 @@
 #include "sensor_data.hpp"
 #include "robot_state.hpp"
 #include "wall_follower_state_machine.hpp"
-
-// === Helper function declarations ===
-double normalise_angle(double angle);
-
+#include <std_msgs/msg/bool.hpp>
 
 class Turtlebot3Drive : public rclcpp::Node
 {
@@ -45,10 +42,13 @@ private:
   // ROS topic subscribers
   rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr scan_sub_;
   rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr odom_sub_;
+  rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr stop_sub_;
 
   SensorData sensor_data_;
   RobotState robot_state_;
   WallFollowerStateMachine state_machine_;
+
+  bool goal_reached_;
   
   // ROS timer
   rclcpp::TimerBase::SharedPtr update_timer_;
@@ -58,6 +58,7 @@ private:
   void update_cmd_vel(double linear, double angular);
   void scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg);
   void odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg);
+  void stop_callback(const std_msgs::msg::Bool::SharedPtr p_msg);
 
   // State definitions
   enum

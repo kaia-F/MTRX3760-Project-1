@@ -113,13 +113,15 @@ VelocityCommand WallFollowerStateMachine::update(
     {
       // Turn 90° clockwise (negative angular velocity)
       double angle_diff = robot.get_angle_turned(normalise_angle);
-      
+
       if (std::fabs(angle_diff) >= (WallFollowerConfig::TURN_ANGLE_90 - 
                                     WallFollowerConfig::ANGLE_TOLERANCE))
       {
         // Turn complete - record position for next commit phase
         forward_start_x_ = robot.get_x();
         forward_start_y_ = robot.get_y();
+
+      
         current_state_ = TB3_POST_RIGHT_COMMIT;
         return VelocityCommand(0.0, 0.0);  // Stop
       }
@@ -137,9 +139,10 @@ VelocityCommand WallFollowerStateMachine::update(
       if (std::fabs(angle_diff) >= (WallFollowerConfig::TURN_ANGLE_90 - 
                                     WallFollowerConfig::ANGLE_TOLERANCE))
       {
-        // Turn complete - return to decision state
+        // Turn complete - return to decision state 
         current_state_ = GET_TB3_DIRECTION;
         return VelocityCommand(0.0, 0.0);  // Stop
+        
       }
       else
       {

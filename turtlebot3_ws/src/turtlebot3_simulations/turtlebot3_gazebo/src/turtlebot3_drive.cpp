@@ -26,7 +26,7 @@ using namespace std::chrono_literals;
 
 // Constructor
 Turtlebot3Drive::Turtlebot3Drive()
-: Node("turtlebot3_drive_node")
+: Node("turtlebot3_drive_node"), goal_reached_(false)
 {
 // Calls parent constructor Node with name "turtlebot3_drive_node".
 // Registers this ROS 2 node.
@@ -39,7 +39,7 @@ Turtlebot3Drive::Turtlebot3Drive()
 
   // Initialise publishers
   // Publishes velocity commands (linear.x, angular.z) on /cmd_vel.
-cmd_vel_pub_ = this->create_publisher<geometry_msgs::msg::TwistStamped>("cmd_vel", qos); 
+  cmd_vel_pub_ = this->create_publisher<geometry_msgs::msg::TwistStamped>("cmd_vel", qos); 
 
   // Initialise subscribers
   /*
@@ -61,6 +61,13 @@ cmd_vel_pub_ = this->create_publisher<geometry_msgs::msg::TwistStamped>("cmd_vel
 	*/
   odom_sub_ = this->create_subscription<nav_msgs::msg::Odometry>(
     "odom", qos, std::bind(&Turtlebot3Drive::odom_callback, this, std::placeholders::_1));
+  
+  /*
+  Subscribes to /stop_signal topic
+  Calls stop_callback() when a new message arrives.
+  */
+  stop_sub_ = this->create_subscription<std_msgs::msg::Bool>(
+    "stop_signal", 10, std::bind(&Turtlebot3Drive::stop_callback, this, std::placeholders::_1));
 
   /************************************************************
   ** Initialise ROS timers
@@ -113,7 +120,7 @@ void Turtlebot3Drive::odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg
 
 void Turtlebot3Drive::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
 {
-  uint16_t scan_angle[3] = {0, 90, 270};
+  uint16_t scan_angle[3] = {0, 80, 280};
 
   // Update front (CENTER = 0)
   if (std::isinf(msg->ranges.at(scan_angle[0]))) {
@@ -137,6 +144,17 @@ void Turtlebot3Drive::scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr
   }
 }
 
+void Turtlebot3Drive::stop_callback(const std_msgs::msg::Bool::SharedPtr p_msg)
+{
+  if (p_msg->data)
+  {
+    goal_reached_ = true;
+    RCLCPP_INFO(this->get_logger(), "Stop signal received. Halting robot motion");
+    update_cmd_vel(0.0, 0.0);
+    return;
+  }
+}
+
 void Turtlebot3Drive::update_cmd_vel(double linear, double angular)
 {
   geometry_msgs::msg::TwistStamped cmd_vel;
@@ -152,6 +170,13 @@ void Turtlebot3Drive::update_cmd_vel(double linear, double angular)
 ********************************************************************************/
 void Turtlebot3Drive::update_callback()
 {
+  // Check if goal position has been reached 
+  if (goal_reached_)
+  {
+    update_cmd_vel(0.0, 0.0);
+    return;
+  }
+  
   // Check if sensors are ready
   if (!sensor_data_.is_ready())
   {
