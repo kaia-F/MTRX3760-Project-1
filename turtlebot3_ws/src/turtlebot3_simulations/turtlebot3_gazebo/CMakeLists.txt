@@ -23,6 +23,7 @@ find_package(ament_cmake REQUIRED)
 find_package(ros_gz_sim REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
+find_package(visualization_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(tf2 REQUIRED)
@@ -72,6 +73,14 @@ ament_target_dependencies(camera_node
   image_transport
 )
 
+add_executable(pose_trajectory_node src/turtlebot3_pose_trajectory.cpp)
+ament_target_dependencies(pose_trajectory_node
+  rclcpp
+  nav_msgs
+  visualization_msgs
+  geometry_msgs
+)
+
 target_link_libraries(camera_node
   ${OpenCV_LIBS}
 )
@@ -96,6 +105,7 @@ endforeach()
 ################################################################################
 install(TARGETS
   ${EXEC_NAME}
+  pose_trajectory_node
   camera_node
   obstacles
   obstacle1

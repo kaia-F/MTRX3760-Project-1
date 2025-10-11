@@ -113,7 +113,7 @@ VelocityCommand WallFollowerStateMachine::update(
     {
       // Turn 90° clockwise (negative angular velocity)
       double angle_diff = robot.get_angle_turned(normalise_angle);
-      
+
       if (std::fabs(angle_diff) >= (WallFollowerConfig::TURN_ANGLE_90 - 
                                     WallFollowerConfig::ANGLE_TOLERANCE))
       {

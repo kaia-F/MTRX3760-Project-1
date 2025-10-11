@@ -1,7 +1,6 @@
-#include "turtlebot3_gazebo/turtlebot3_camera.hpp" // Make sure this path matches your project
+#include "turtlebot3_gazebo/turtlebot3_camera.hpp"
 #include <thread>
 
-// Constructor: Initializes the ROS components
 CameraNode::CameraNode() : Node("turtlebot_camera_node")
 {
     m_stop_pub = this->create_publisher<std_msgs::msg::Bool>("goal_reached_signal", 10);
@@ -42,7 +41,7 @@ void CameraNode::check_goal(const sensor_msgs::msg::Image::SharedPtr p_msg)
         cv::Mat hsv_image;
         cv::cvtColor(cv_ptr->image, hsv_image, cv::COLOR_BGR2HSV);
 
-        // A better starting HSV range for green
+        // Set
         cv::Scalar lower_bound(0, 100, 0);
         cv::Scalar upper_bound(25, 255, 25);
         cv::Mat green_mask;
@@ -82,7 +81,6 @@ int main(int argc, char *argv[])
         rclcpp::spin(camera_node);
     });
 
-    // The main thread is now 100% dedicated to the GUI
     cv::namedWindow("Camera Feed");
     cv::namedWindow("Green Detection");
     cv::Mat camera_feed;

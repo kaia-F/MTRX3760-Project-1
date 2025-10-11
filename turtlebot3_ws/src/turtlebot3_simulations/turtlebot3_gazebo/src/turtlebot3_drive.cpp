@@ -151,6 +151,7 @@ void Turtlebot3Drive::stop_callback(const std_msgs::msg::Bool::SharedPtr p_msg)
     goal_reached_ = true;
     RCLCPP_INFO(this->get_logger(), "Stop signal received. Halting robot motion");
     update_cmd_vel(0.0, 0.0);
+    return;
   }
 }
 
