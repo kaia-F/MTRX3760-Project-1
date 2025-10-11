@@ -27,18 +27,19 @@ Clone the repository in your terminal using:
 ## File Descriptions
 
 ### Source files overview (turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src)
-- **turtlebot3_drive_node.cpp** — ROS 2 executable node that wires up publishers/subscribers (Lidar, cmd_vel, odom) and runs the main control loop for driving.
-- **turtlebot3_drive.cpp** — Core driving logic (velocity commands, simple obstacle checks, state updates) used by the node.
+- **turtlebot3_drive.cpp** — ROS 2 executable node that wires up publishers/subscribers (Lidar, cmd_vel, odom) and runs the main control loop for driving.
 - **wall_follower_state_machine.cpp** — Right/left-wall following finite-state machine (follow/turn/realign, gap/corner handling).
-- **wall_follower_config.cpp** — Tunable parameters for wall following (target distance, PID gains, angular/linear limits).
-- **utilities.cpp** — Small helpers (angle wrapping, range filtering, scan windowing, safety clamping, timing).
+- **turtlebot3_pose_trajectory.cpp** - Records the robot’s poses over time from /odom and publishes it on trajectory_marker to visualize the robot’s path in RViz.
+- **turtlebot3_camera.cpp** - Processes the simulated camera stream to detect a green goal region, publishes a boolean stop signal, and exposes the latest frames.
 ### Headers files overview (turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/turtlebot3_gazebo)
 - **turtlebot3_drive.hpp** — Declares the Turtlebot3Drive class (ROS 2 node interface): publishers/subscribers, parameter loading, and main control callbacks.
-- **wall_follower_state_machine.hpp** — Finite-state machine API for wall following (state enum, transition logic, update()/reset() signatures).
-- **wall_follower_config.hpp** — Parameter struct for wall-following behavior (target distance, PID gains, speed limits) plus helpers to read from ROS 2 parameters.
-- **utilities.hpp** — small helper functions (angle wrapping, clamping, scan windowing/filtering, conversions) shared across components.
-- **sensor_data.hpp** — Normalized sensor bundle (LaserScan slices, min/avg ranges per sector, bumper/Cliff IR flags if used, odom snapshot); helpers to derive obstacles, gaps, and wall distance from raw topics
-- **robot_state.hpp**- Tracks the robott class of the robot’s current state (pose, twist, heading, goal flags, last command, timers); data + small utility methods to update or integrate state
+- **wall_follower_state_machine.hpp** — State machine for wall-following navigation, reads sensor readings and robot state as input and returns velocity commands.
+- **wall_follower_config.hpp** — Parameter struct for wall-following behavior (target distance, PID gains, speed limits) to read from tuning parameters to eliminate magic numbers.
+- **utilities.hpp** — small helper functions (normalise angle) across components.
+- **sensor_data.hpp** — Encapsulates LIDAR sensor readings from three directions; helpers to derive obstacles, gaps, and wall distance from raw topics
+- **robot_state.hpp**- Tracks the robott class of the robot’s current state (position, orientation and yaw).
+- **turtlebot3_camera.hpp** - Declares the CameraNode ROS 2 node interface that subscribes to camera images, performs green-goal detection and publishes a Bool stop signal
+- **turtlebot3_pose_trajectory.hpp** - Declares the PoseTrajectory ROS 2 node that subscribes to odometry, accumulates positions into a LINE_STRIP marker, and publishes the robot’s path for visualization.
 ### Launch files overview (turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/launch)
 - **openmaze.launch.py** — Spawns TurtleBot3 in the open maze world and starts the core nodes (Gazebo sim, robot_state_publisher, and drive node) for the wall-following logic in a designed open maze layout.
 - **closedmaze.launch.py** — Spawns TurtleBot3 in the closed maze world and brings up the same core stack, focusing on tighter corridors and dead-ends to demonstrate turning logic, gap detection, and recovery behaviors.
@@ -56,14 +57,13 @@ turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/
 │     ├─ utilities.hpp
 │     ├─ robot_state.hpp
 │     └─ sensor_data.hpp
+│     └─ turtlebot3_camera.hpp
+│     └─ turtlebot3_pose_trajectory.hpp
 ├─ src/
-│  ├─ turtlebot3_drive_node.cpp     # main() entrypoint (ROS 2 node)
-│  ├─ turtlebot3_drive.cpp          # implementation for turtlebot3_drive.hpp
+│  ├─ turtlebot3_drive.cpp         
 │  ├─ wall_follower_state_machine.cpp
-│  ├─ wall_follower_config.cpp
-│  ├─ utilities.cpp
-│  ├─ robot_state.cpp
-│  └─ sensor_data.cpp
+│  ├─ turtlebot3_camera.cpp
+│  ├─ turtlebot3_pose_trajectory.cpp
 ├─ launch/
 │  ├─ openmaze.launch.py
 │  ├─ closedmaze.launch.py
