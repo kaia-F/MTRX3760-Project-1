@@ -1,5 +1,5 @@
 # MTRX3760-Project-1 🤖
-## Group - class aMazing **
+## Group - class aMazing
 
 ### **Group members ✍️:**  
 - **Shiyao Lin**: 540745159
@@ -170,11 +170,34 @@ ros2 run turtlebot3_teleop teleop_keyboard
 
 ### Maze Testing
 
+This section explains how to run, observe, and assess the robot’s behaviour in the Open/Closed mazes and test custom world.
 
+```bash
+# From workspace root
+colcon build --packages-select turtlebot3_gazebo
+source install/setup.bash
+export TURTLEBOT3_MODEL=burger_cam
 
+# Open maze
+ros2 launch turtlebot3_gazebo openmaze.launch.py
 
-## Minutes and Meeting Notes 📁
+# Closed maze 
+ros2 launch turtlebot3_gazebo closedmaze.launch.py
 
-All meeting notes and agendas are stored in the `/minutes/` directory of this repository.
+# Custom developer test 
+ros2 launch turtlebot3_gazebo custom_test.launch.py
+```
 
+**What to watch (topics & visuals)**
+- Path trace: /trajectory_marker (visualization_msgs/Marker LINE_STRIP) — shows where the robot has been.
+- Velocity commands: /cmd_vel — steady commands with minimal oscillation indicate a stable controller
+- Odometry: /odom & /tf — verify pose updates.
+- Goal detection (camera): /goal_reached_signal (std_msgs/Bool) — boolean turns true on green-goal.
+- Camera: camera/image_raw (and GUI in turtlebot3_camera)
+
+**Launch RViz**
+```bash
+rviz2
+# Add: LaserScan(/scan), Odometry(/odom), TF, Marker(/trajectory_marker)
+```
 
