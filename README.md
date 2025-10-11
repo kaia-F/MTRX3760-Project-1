@@ -189,15 +189,20 @@ ros2 launch turtlebot3_gazebo custom_test.launch.py
 ```
 
 **What to watch (topics & visuals)**
-- Path trace: /trajectory_marker (visualization_msgs/Marker LINE_STRIP) — shows where the robot has been.
-- Velocity commands: /cmd_vel — steady commands with minimal oscillation indicate a stable controller
-- Odometry: /odom & /tf — verify pose updates.
-- Goal detection (camera): /goal_reached_signal (std_msgs/Bool) — boolean turns true on green-goal.
-- Camera: camera/image_raw (and GUI in turtlebot3_camera)
+- **Path trace**: /trajectory_marker (visualization_msgs/Marker LINE_STRIP) — shows where the robot has been.
+- **Velocity commands**: /cmd_vel — steady commands with minimal oscillation indicate a stable controller
+- **Odometry**: /odom & /tf — verify pose updates.
+- **Goal detection (camera)**: /goal_reached_signal (std_msgs/Bool) — boolean turns true on green-goal.
+- **Camera**: camera/image_raw (and GUI in turtlebot3_camera)
 
 **Launch RViz**
 ```bash
 rviz2
 # Add: LaserScan(/scan), Odometry(/odom), TF, Marker(/trajectory_marker)
 ```
+**Success criteria**
+Checks to decide if a run passes:
+- **OpenMaze/ClosedMaze**: robot follows the right wall and navigates turns without collisions, execute recoveries within 5 seconds, path is smooth, reaches goal or runs continuously with stable /cmd_vel.
+- **CustomTest**: parameter changes (e.g., target wall distance) lead to predictable changes in behaviour within 2 secs
+
 
