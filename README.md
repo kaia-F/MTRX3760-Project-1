@@ -42,8 +42,8 @@ Clone the repository in your terminal using:
 - **turtlebot3_pose_trajectory.hpp** - Declares the PoseTrajectory ROS 2 node that subscribes to odometry, accumulates positions into a LINE_STRIP marker, and publishes the robot’s path for visualization.
 ### Launch files overview (turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/launch)
 - **openmaze.launch.py** — Spawns TurtleBot3 in the open maze world and starts the core nodes (Gazebo sim, robot_state_publisher, and drive node) for the wall-following logic in a designed open maze layout.
-- **closedmaze.launch.py** — Spawns TurtleBot3 in the closed maze world and brings up the same core stack, focusing on tighter corridors and dead-ends to demonstrate turning logic, gap detection, and recovery behaviors.
-- **turtlebot3_dqn_stage1_custom.launch.py** — Fast-start launch for testing robot logic (FSM, parameter tuning, logging); loads the robot inside a square map and run the drive node to test parameters.
+- **closedmaze.launch.py** — Spawns TurtleBot3 in the closed maze world and brings up the same core stack
+- **turtlebot3_dqn_stage1_custom.launch.py** — Fast-start launch for testing robot logic; loads the robot inside a square map and run the drive node to test parameters.
 
 ## File Setup
 ### Folder layout
