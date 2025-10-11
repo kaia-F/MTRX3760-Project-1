@@ -26,13 +26,13 @@ Clone the repository in your terminal using:
 
 ## File Descriptions
 
-### Source files overview (turtlebot3_gazebo/src/)
+### Source files overview (turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/src)
 - **turtlebot3_drive_node.cpp** — ROS 2 executable node that wires up publishers/subscribers (Lidar, cmd_vel, odom) and runs the main control loop for driving.
 - **turtlebot3_drive.cpp** — Core driving logic (velocity commands, simple obstacle checks, state updates) used by the node.
 - **wall_follower_state_machine.cpp** — Right/left-wall following finite-state machine (follow/turn/realign, gap/corner handling).
 - **wall_follower_config.cpp** — Tunable parameters for wall following (target distance, PID gains, angular/linear limits).
 - **utilities.cpp** — Small helpers (angle wrapping, range filtering, scan windowing, safety clamping, timing).
-### Headers files overview (turtlebot3_gazebo/include/turtlebot3_gazebo/)
+### Headers files overview (turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/turtlebot3_gazebo)
 - **turtlebot3_drive.hpp** — Declares the Turtlebot3Drive class (ROS 2 node interface): publishers/subscribers, parameter loading, and main control callbacks.
 - **wall_follower_state_machine.hpp** — Finite-state machine API for wall following (state enum, transition logic, update()/reset() signatures).
 - **wall_follower_config.hpp** — Parameter struct for wall-following behavior (target distance, PID gains, speed limits) plus helpers to read from ROS 2 parameters.
