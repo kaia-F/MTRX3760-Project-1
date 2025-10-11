@@ -164,7 +164,7 @@ ros2 topic pub -r 10 /cmd_vel geometry_msgs/Twist '{linear: {x: 0.2}, angular: {
 Or manually control the robot with teleop:  \
 In a new terminal, run ros2 teleop
 ```bash
-export TURTLEBOT3_MODEL=burger
+export TURTLEBOT3_MODEL=burger_cam
 ros2 run turtlebot3_teleop teleop_keyboard
 ```
 
