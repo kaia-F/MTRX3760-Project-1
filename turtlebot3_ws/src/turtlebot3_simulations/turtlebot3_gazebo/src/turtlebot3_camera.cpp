@@ -42,8 +42,8 @@ void CameraNode::check_goal(const sensor_msgs::msg::Image::SharedPtr p_msg)
         cv::cvtColor(cv_ptr->image, hsv_image, cv::COLOR_BGR2HSV);
 
         // Set
-        cv::Scalar lower_bound(0, 100, 0);
-        cv::Scalar upper_bound(25, 255, 25);
+        cv::Scalar lower_bound(45, 50, 50);
+        cv::Scalar upper_bound(75, 255, 255);
         cv::Mat green_mask;
         cv::inRange(hsv_image, lower_bound, upper_bound, green_mask);
 
