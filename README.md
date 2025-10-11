@@ -39,6 +39,10 @@ Clone the repository in your terminal using:
 - **utilities.hpp** — small helper functions (angle wrapping, clamping, scan windowing/filtering, conversions) shared across components.
 - **sensor_data.hpp** — Normalized sensor bundle (LaserScan slices, min/avg ranges per sector, bumper/Cliff IR flags if used, odom snapshot); helpers to derive obstacles, gaps, and wall distance from raw topics
 - **robot_state.hpp**- Tracks the robott class of the robot’s current state (pose, twist, heading, goal flags, last command, timers); data + small utility methods to update or integrate state
+### Launch files overview (turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/launch)
+- **openmaze.launch.py** — Spawns TurtleBot3 in the “open maze” world and starts the core nodes (Gazebo sim, robot_state_publisher, and your drive node) for general navigation and wall-following evaluation in a spacious layout.
+- **closedmaze.launch.py** — Spawns TurtleBot3 in the “closed maze” world and brings up the same core stack, focusing on tighter corridors and dead-ends to stress-test turning logic, gap detection, and recovery behaviors.
+- **turtlebot3_dqn_stage1_custom.launch.py** — Fast-start launch for testing robot logic (FSM, parameter tuning, logging); loads the robot inside a square map and run the drive node to test parameters.
 
 ## File Setup
 ### Folder layout
