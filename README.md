@@ -24,6 +24,24 @@ Clone the repository in your terminal using:
    git clone https://github.com/kaia-F/MTRX3760-Project-1
    ```
 
+## File Descriptions
+
+## Source files overview (turtlebot3_gazebo/src/)
+- **turtlebot3_drive_node.cpp** — ROS 2 executable node that wires up publishers/subscribers (Lidar, cmd_vel, odom) and runs the main control loop for driving.
+- **turtlebot3_drive.cpp** — Core driving logic (velocity commands, simple obstacle checks, state updates) used by the node.
+- **wall_follower_state_machine.cpp** — Right/left-wall following finite-state machine (follow/turn/realign, gap/corner handling).
+- **wall_follower_config.cpp** — Tunable parameters for wall following (target distance, PID gains, angular/linear limits).
+- **utilities.cpp** — Small helpers (angle wrapping, range filtering, scan windowing, safety clamping, timing).
+## Headers files overview (turtlebot3_gazebo/include/turtlebot3_gazebo/)
+- **turtlebot3_drive.hpp** — Declares the Turtlebot3Drive class (ROS 2 node interface): publishers/subscribers, parameter loading, and main control callbacks.
+- **wall_follower_state_machine.hpp** — Finite-state machine API for wall following (state enum, transition logic, update()/reset() signatures).
+- **wall_follower_config.hpp** — Parameter struct for wall-following behavior (target distance, PID gains, speed limits) plus helpers to read from ROS 2 parameters.
+- **utilities.hpp** — small helper functions (angle wrapping, clamping, scan windowing/filtering, conversions) shared across components.
+- **sensor_data.hpp** — Normalized sensor bundle (LaserScan slices, min/avg ranges per sector, bumper/Cliff IR flags if used, odom snapshot); helpers to derive obstacles, gaps, and wall distance from raw topics
+- **robot_state.hpp**- Tracks the robott class of the robot’s current state (pose, twist, heading, goal flags, last command, timers); data + small utility methods to update or integrate state
+
+### File Setup
+
 ## Requirements
 ### Software Requirements
 - **OS:**
@@ -34,6 +52,8 @@ Clone the repository in your terminal using:
   - Gazebo Sim “Harmonic” (current recommended Gazebo for ROS 2). On Jazzy, Gazebo is provided via ROS vendor packages.
 - **TurtleBot3 Simulation**
 -   turtlebot3_gazebo, turtlebot3_msgs, turtlebot3_description packages for Jazzy.
+
+
 
 ### Installation & Setup ⚙️
 
