@@ -188,6 +188,9 @@ ros2 launch turtlebot3_gazebo closedmaze.launch.py
 
 # Custom developer test 
 ros2 launch turtlebot3_gazebo custom_test.launch.py
+
+# Full test for rviz output (<maze_name> can be closedmaze, openmaze, or custom_test)
+ros2 launch turtlebot3_gazebo full_launch.py sim_map:=<maze_name>
 ```
 
 **What to watch (topics & visuals)**
