@@ -200,9 +200,20 @@ ros2 launch turtlebot3_gazebo custom_test.launch.py
 rviz2
 # Add: LaserScan(/scan), Odometry(/odom), TF, Marker(/trajectory_marker)
 ```
-**Success criteria**
+**Success criteria**\
 Checks to decide if a run passes:
 - **OpenMaze/ClosedMaze**: robot follows the right wall and navigates turns without collisions, execute recoveries within 5 seconds, path is smooth, reaches goal or runs continuously with stable /cmd_vel.
 - **CustomTest**: parameter changes (e.g., target wall distance) lead to predictable changes in behaviour within 2 secs
 
+**Record and measure**
+```bash
+# Check basic robot state
+ros2 topic hz /scan
+ros2 topic hz /cmd_vel
 
+# Record a run for later analysis
+ros2 bag record /scan /cmd_vel /odom /trajectory_marker /goal_reached_signal
+
+# Quick inspection
+ros2 topic echo /goal_reached_signal
+```
